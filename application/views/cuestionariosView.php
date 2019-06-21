@@ -1,7 +1,7 @@
 <main class="page-content">
 	<div class="container-fluid ">
 		<h1 class="text-center">Cuestionarios</h1>
-		<!-- pone aquí /* form_open('/firstclass/recibe')*/ -->
+		<?= form_open('index.php/CuestionariosController/saveCuestionario')?>
 		<?php
 		  $respuesta = array(
 		    'respuesta' => 'nombre',

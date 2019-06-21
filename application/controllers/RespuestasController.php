@@ -19,5 +19,9 @@ class RespuestasController extends CI_Controller {
 		$this->load->view('template/endHTML');
 
 	}
+
+	public function saveRespuesta(){
+		redirect(base_url('/index.php/RespuestasController'));	
+	}
 }
 ?>

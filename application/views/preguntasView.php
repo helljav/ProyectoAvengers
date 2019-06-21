@@ -1,7 +1,7 @@
 <main class="page-content">
 	<div class="container-fluid ">
 		<h1 class="text-center">Preguntas</h1>
-		<!-- pone aquí /* form_open('/firstclass/recibe')*/ -->
+		<?= form_open('index.php/PreguntasController/savePregunta')?>
 		<?php
 		  $pregunta = array(
 		    'pregunta' => 'pregunta',

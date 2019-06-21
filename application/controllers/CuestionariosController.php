@@ -19,5 +19,8 @@ class CuestionariosController extends CI_Controller {
 		$this->load->view('template/endHTML');
 
 	}
+	public function saveCuestionario(){
+		redirect(base_url('/index.php/CuestionariosController'));	
+	}
 }
 ?>

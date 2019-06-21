@@ -19,5 +19,9 @@ class PreguntasController extends CI_Controller {
 		$this->load->view('template/endHTML');
 
 	}
+
+	public function savePregunta(){
+		redirect(base_url('/index.php/PreguntasController'));
+	}
 }
 ?>
