@@ -29,9 +29,9 @@
           if($opcion=='Respuestas'){
             $ret_menu .= '     <li> <a href="http://localhost:3308/ProyectoAvengers/index.php/RespuestasController"> <i class="fa fa-book"></i> <span>'.$opcion.'</span><span class="badge badge-pill badge-primary">Beta</span></a></li>';
           }else if($opcion=='Preguntas'){
-            $ret_menu .= '     <li> <a href="http://localhost:3308/ProyectoAvengers/index.php/PreguntasController"> <i class="fa fa-book"></i> <span>'.$opcion.'</span><span class="badge badge-pill badge-primary">Beta</span></a></li>';
+            $ret_menu .= '     <li> <a href="http://localhost:3308/ProyectoAvengers/index.php/PreguntasController"> <i class="fa fa-chart-line"></i> <span>'.$opcion.'</span><span class="badge badge-pill badge-primary">Beta</span></a></li>';
           }else if($opcion=='Cuestionarios'){
-            $ret_menu .= '     <li> <a href="http://localhost:3308/ProyectoAvengers/index.php/CuestionariosController"> <i class="fa fa-book"></i> <span>'.$opcion.'</span><span class="badge badge-pill badge-primary">Beta</span></a></li>';
+            $ret_menu .= '     <li> <a href="http://localhost:3308/ProyectoAvengers/index.php/CuestionariosController"> <i class="fa fa-folder"></i> <span>'.$opcion.'</span><span class="badge badge-pill badge-primary">Beta</span></a></li>';
           }
 
         }

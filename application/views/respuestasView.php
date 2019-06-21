@@ -25,11 +25,9 @@
 		    <thead class="thead-dark">
 		      <tr>
 		        <th scope="col">#</th>
-		        <th scope="col">Name</th>
-		        <th scope="col">Address</th>
-		        <th scope="col">Cellphone</th>
-		        <th scope="col">Delete</th>
-		        <th scope="col">Edit</th>
+		        <th scope="col">Respuesta</th>
+		        <th scope="col">Editar</th>
+		        <th scope="col">Eliminar</th>
 		      </tr>
 		    </thead>
 		    <tbody>
@@ -37,8 +35,8 @@
 		      <tr>
 		        <th scope="row"> <?= $item->id;?> </th>
 		        <td> <?= $item->contenido;?> </td>
-		        <td><a href='firstclass/deleteUser/<?= $item->id;?>'>Delete</a> </td>
-		        <td><a href='firstclass/editUser/<?= $item->id;?>'>Edit</a> </td>
+						<td><a href='RespuestasController/editar/<?= $item->id;?>'>Editar</a> </td>
+		        <td><a href='RespuestasController/eliminar/<?= $item->id;?>'>Eliminar</a> </td>
 		      </tr>
 		  <?php } } else{
 		    echo '<p>No contiene ningun objeto por ahora</p>';
