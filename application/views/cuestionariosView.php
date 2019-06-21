@@ -4,7 +4,7 @@
 		<?= form_open('index.php/CuestionariosController/saveCuestionario')?>
 		<?php
 		  $respuesta = array(
-		    'respuesta' => 'nombre',
+		    'cuestionario' => 'cuestionario',
 		    'placeholder' => 'Nombre',
 		    'class' =>  'form-control'
 		  );
