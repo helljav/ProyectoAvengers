@@ -22,10 +22,21 @@ class Welcome extends CI_Controller {
 	{
 		$this->load->view('template/headHTML');
 		$this->load->library('menu',array('Respuestas','Preguntas','Cuestionarios'));
+<<<<<<< HEAD
 	    $data['menu'] = $this->menu->buildMenu();
+=======
+	  $data['menu'] = $this->menu->buildMenu();
+>>>>>>> b6524728f788cfb17bbe51abac2268fb090fb6c3
 
 		$this->load->view('template/menuView',$data);
 		//$this->load->view('welcome_view');
 		$this->load->view('template/endHTML');
+<<<<<<< HEAD
+=======
+
+
+
+>>>>>>> b6524728f788cfb17bbe51abac2268fb090fb6c3
 	}
 }
+?>
