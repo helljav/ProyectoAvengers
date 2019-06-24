@@ -18,8 +18,7 @@ class Welcome extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
-	public function index()
-	{
+	public function index(){
 		$this->load->view('template/headHTML');
 		$this->load->library('menu',array('Respuestas','Preguntas','Cuestionarios'));
 	  $data['menu'] = $this->menu->buildMenu();
@@ -27,8 +26,6 @@ class Welcome extends CI_Controller {
 		$this->load->view('template/menuView',$data);
 		//$this->load->view('welcome_view');
 		$this->load->view('template/endHTML');
-
-
 
 	}
 }

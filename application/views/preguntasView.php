@@ -23,8 +23,7 @@
 
 		     <?= form_label('Tipo','tipo') ?>
 				 <div class="dropdown">
-
-				 <?= form_dropdown ( 'ssss' , $options, 'pequeño', 'class="my_dropdown"' ); ?>
+				 	<?= form_dropdown ( 'Options' , $options,'Cerrado', 'class="my_dropdown"'); ?>
 				 </div>
 		   </div>
 		   <?= form_submit(' ','Guardar','class="btn btn-dark"') ?>
