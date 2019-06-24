@@ -44,10 +44,10 @@ CREATE TABLE IF NOT EXISTS `cuestionario` (
 
 DROP TABLE IF EXISTS `preguntas`;
 CREATE TABLE IF NOT EXISTS `preguntas` (
-  `idPreguntas` int(11) NOT NULL AUTO_INCREMENT,
+  `idPregunta` int(11) NOT NULL AUTO_INCREMENT,
   `pregunta` varchar(255) NOT NULL,
-  `comentarios` varchar(255) NOT NULL,
-  PRIMARY KEY (`idPreguntas`)
+  `tipo` varchar(255) NOT NULL,
+  PRIMARY KEY (`idPregunta`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
