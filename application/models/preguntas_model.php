@@ -11,6 +11,7 @@ class Preguntas_model extends CI_Model{
         //preguntas es el nombre de la base de la tabla
         //El array corresponde a los datos a insertar
         $this->db->insert('preguntas',array(
+            'idPregunta' => $data['idPregunta'],
             'pregunta' => $data['pregunta'], 
             'tipo' => $data['tipo']
         ));
