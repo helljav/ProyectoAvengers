@@ -13,7 +13,6 @@ class PreguntasController extends CI_Controller {
 	}
 
 	public function index(){
-		//var_dump($this->dropdown->post('ssss'));
 		$this->load->view('template/headHTML');
 		$this->load->library('menu',array('Respuestas','Preguntas','Cuestionarios'));
 	    $data['menu'] = $this->menu->buildMenu();
@@ -25,16 +24,18 @@ class PreguntasController extends CI_Controller {
 	}
 
 	public function savePregunta(){
-		$tipo=	$this->input->post('Options');
+		$pregunta =	$this->input->post('pegrunta');
 		$data = array(
             'idPregunta' => 'NULL',
             'pregunta' => $this->input->post('pregunta'),
             'tipo' => $this->input->post('Options')
         );
 		$this->preguntas_model->crearPregunta($data);
-		
 
-		redirect(base_url('/index.php/PreguntasController'));
+		echo $pregunta;
+
+
+		//redirect(base_url('/index.php/PreguntasController'));
 	}
 }
 ?>

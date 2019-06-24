@@ -4,7 +4,7 @@
 		<?= form_open('index.php/PreguntasController/savePregunta')?>
 		<?php
 		  $pregunta = array(
-		    'pregunta' => 'pregunta',
+		    'name' => 'pregunta',
 		    'placeholder' => 'Escribe una pregunta',
 		    'class' =>  'form-control'
 		  );
