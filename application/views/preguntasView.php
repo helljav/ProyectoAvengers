@@ -45,11 +45,12 @@
 		    <tbody>
 		  <?php if($users){ foreach ($users->result() as $item) {?>
 		      <tr>
-		        <th scope="row"> <?= $item->id;?> </th>
-		        <td> <?= $item->contenido;?> </td>
-		        <td><a href='PreguntasController/agregaRespuestas/<?= $item->id;?>'>Agregar</a> </td>
-		        <td><a href='PreguntasController/eliminar/<?= $item->id;?>'>Editar</a> </td>
-		        <td><a href='PreguntasController/editar/<?= $item->id;?>'>Eliminar</a> </td>
+		        <th scope="row"> <?= $item->idPregunta;?> </th>
+		        <td> <?= $item->pregunta;?> </td>
+				<td> <?= $item->tipo;?> </td>
+		        <td><a href='PreguntasController/agregaRespuestas/<?= $item->idPregunta;?>'>Agregar</a> </td>
+		        <td><a href='PreguntasController/eliminar/<?= $item->idPregunta;?>'>Editar</a> </td>
+		        <td><a href='PreguntasController/editar/<?= $item->idPregunta;?>'>Eliminar</a> </td>
 		      </tr>
 		  <?php } } else{
 		    echo '<p>No contiene ningun objeto por ahora</p>';

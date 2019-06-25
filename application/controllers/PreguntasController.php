@@ -16,7 +16,7 @@ class PreguntasController extends CI_Controller {
 		$this->load->view('template/headHTML');
 		$this->load->library('menu',array('Respuestas','Preguntas','Cuestionarios'));
 	    $data['menu'] = $this->menu->buildMenu();
-		$preguntasTabla = array('','');
+		$preguntasTabla['users'] =  $this->preguntas_model->obtenerPreguntas();
 		$this->load->view('template/menuView',$data);
 		$this->load->view('preguntasView',$preguntasTabla);
 		$this->load->view('template/endHTML');
@@ -31,11 +31,7 @@ class PreguntasController extends CI_Controller {
             'tipo' => $this->input->post('Options')
         );
 		$this->preguntas_model->crearPregunta($data);
-
-		echo $pregunta;
-
-
-		//redirect(base_url('/index.php/PreguntasController'));
+		redirect(base_url('/index.php/PreguntasController'));
 	}
 }
 ?>
