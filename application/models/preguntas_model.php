@@ -17,6 +17,13 @@ class Preguntas_model extends CI_Model{
         ));
 
     }
+
+    function obtenerPreguntas(){
+        $query = $this->db->get('preguntas');
+        if($query->num_rows()>0) return $query;
+        else return false;
+        
+    }
 }
 
 ?>
