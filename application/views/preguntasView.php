@@ -6,11 +6,12 @@
 		  $pregunta = array(
 		    'name' => 'pregunta',
 		    'placeholder' => 'Escribe una pregunta',
-		    'class' =>  'form-control'
+		    'class' =>  'form-control',
+				'required' => 'required'
 		  );
-			$options = array(
+		/*	$options = array(
 			 'Cerrado' => 'Cerrado',
-			 'Abierto' => 'Abierto');
+			 'Abierto' => 'Abierto');*/
 
 		?>
 		<div class="m-5" style="margin-top: 95px !important">
@@ -19,13 +20,7 @@
 		     <?= form_label('Pregunta','pregunta') ?>
 		     <?= form_input($pregunta) ?>
 		   </div>
-		  <div class="form-group">
 
-		     <?= form_label('Tipo','tipo') ?>
-				 <div class="dropdown">
-				 	<?= form_dropdown ( 'Options' , $options,'Cerrado', 'class="my_dropdown"'); ?>
-				 </div>
-		   </div>
 		   <?= form_submit(' ','Guardar','class="btn btn-dark"') ?>
 		</div>
 		<?= form_close() ?>
@@ -36,8 +31,8 @@
 		      <tr>
 		        <th scope="col">#</th>
 		        <th scope="col">Pregunta</th>
-		        <th scope="col">Tipo</th>
 		        <th scope="col">Agregar Respuestas</th>
+		        <th scope="col">Ver respuestas</th>
 		        <th scope="col">Editar</th>
 		        <th scope="col">Eliminar</th>
 		      </tr>
@@ -47,8 +42,8 @@
 		      <tr>
 		        <th scope="row"> <?= $item->idPregunta;?> </th>
 		        <td> <?= $item->pregunta;?> </td>
-				<td> <?= $item->tipo;?> </td>
-		        <td><a href='PreguntasController/agregaRespuestas/<?= $item->idPregunta;?>'>Agregar</a> </td>
+		        <td><a href='RespuestasController/index/<?= $item->idPregunta;?>'>Agregar</a> </td>
+		        <td><a href='VerRespuestasController/index/<?= $item->idPregunta;?>'>Ver respuestas</a> </td>
 		        <td><a href='PreguntasController/eliminar/<?= $item->idPregunta;?>'>Editar</a> </td>
 		        <td><a href='PreguntasController/editar/<?= $item->idPregunta;?>'>Eliminar</a> </td>
 		      </tr>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1:3306
--- Tiempo de generación: 21-06-2019 a las 18:34:08
+-- Tiempo de generación: 26-06-2019 a las 14:07:18
 -- Versión del servidor: 5.7.26
 -- Versión de PHP: 7.2.18
 
@@ -32,7 +32,6 @@ DROP TABLE IF EXISTS `cuestionario`;
 CREATE TABLE IF NOT EXISTS `cuestionario` (
   `idCuestionario` int(11) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(255) NOT NULL,
-  `comentario` varchar(255) NOT NULL,
   PRIMARY KEY (`idCuestionario`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
@@ -48,6 +47,34 @@ CREATE TABLE IF NOT EXISTS `preguntas` (
   `pregunta` varchar(255) NOT NULL,
   `tipo` varchar(255) NOT NULL,
   PRIMARY KEY (`idPregunta`)
+) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `preguntas`
+--
+
+INSERT INTO `preguntas` (`idPregunta`, `pregunta`, `tipo`) VALUES
+(1, 'Hola', 'Cerrado'),
+(2, '¿cómo te llamas chiquita?', 'Cerrado'),
+(3, '', 'Cerrado'),
+(4, 'dsa', 'Cerrado'),
+(5, 'ds', 'Cerrado'),
+(6, '', 'Cerrado'),
+(7, '', 'Cerrado');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `pregunta_cuestionario`
+--
+
+DROP TABLE IF EXISTS `pregunta_cuestionario`;
+CREATE TABLE IF NOT EXISTS `pregunta_cuestionario` (
+  `idCuestionario` int(255) NOT NULL,
+  `idPregunta` int(255) NOT NULL,
+  `secuencia` int(255) NOT NULL,
+  UNIQUE KEY `idCuestionario` (`idCuestionario`),
+  UNIQUE KEY `idPregunta` (`idPregunta`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -60,8 +87,9 @@ DROP TABLE IF EXISTS `respuestas`;
 CREATE TABLE IF NOT EXISTS `respuestas` (
   `idRespuesta` int(11) NOT NULL AUTO_INCREMENT,
   `respuesta` varchar(255) NOT NULL,
-  `comentario` varchar(255) NOT NULL,
-  PRIMARY KEY (`idRespuesta`)
+  `idPegunta` int(11) NOT NULL,
+  PRIMARY KEY (`idRespuesta`),
+  UNIQUE KEY `idPregunta` (`idPegunta`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 COMMIT;
 

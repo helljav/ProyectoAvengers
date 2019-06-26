@@ -3,6 +3,7 @@
 
 class RespuestasController extends CI_Controller {
 
+
 	function __construct(){
 		parent::__construct();
 		$this->load->helper('form');
@@ -10,18 +11,23 @@ class RespuestasController extends CI_Controller {
 
 	public function index()
 	{
+		$users['id'] = $this->uri->segment(3);
+
+
 		$this->load->view('template/headHTML');
-		$this->load->library('menu',array('Respuestas','Preguntas','Cuestionarios'));
+		$this->load->library('menu',array('Preguntas','Cuestionarios'));
 	  $data['menu'] = $this->menu->buildMenu();
-		$users = array('','');
+	//	$users['users'] = array('','');
 		$this->load->view('template/menuView',$data);
 		$this->load->view('respuestasView',$users);
 		$this->load->view('template/endHTML');
 
+
+
 	}
 
 	public function saveRespuesta(){
-		redirect(base_url('/index.php/RespuestasController'));	
+		redirect(base_url('/index.php/RespuestasController'));
 	}
 }
 ?>
