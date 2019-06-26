@@ -12,11 +12,13 @@ class RespuestasController extends CI_Controller {
 	{
 		$this->load->view('template/headHTML');
 		$this->load->library('menu',array('Respuestas','Preguntas','Cuestionarios'));
-	  $data['menu'] = $this->menu->buildMenu();
+	  	$data['menu'] = $this->menu->buildMenu();
 		$users = array('','');
 		$this->load->view('template/menuView',$data);
 		$this->load->view('respuestasView',$users);
 		$this->load->view('template/endHTML');
+		$segmento = $this->uri->segment(3);
+		echo $segmento;
 
 	}
 
