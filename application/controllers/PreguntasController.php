@@ -1,5 +1,14 @@
 <?php
+/*
+	Ejemplo dropdown
+	<div class="form-group">
 
+		 <?= form_label('Tipo','tipo') ?>
+		 <div class="dropdown">
+			<?= form_dropdown ( 'Options' , $options,'Cerrado', 'class="my_dropdown"'); ?>
+		 </div>
+	 </div>
+*/
 
 class PreguntasController extends CI_Controller {
 
@@ -14,14 +23,16 @@ class PreguntasController extends CI_Controller {
 
 	public function index(){
 		$this->load->view('template/headHTML');
-		$this->load->library('menu',array('Respuestas','Preguntas','Cuestionarios'));
+		$this->load->library('menu',array('Preguntas','Cuestionarios'));
 	    $data['menu'] = $this->menu->buildMenu();
 		$preguntasTabla['users'] =  $this->preguntas_model->obtenerPreguntas();
 		$this->load->view('template/menuView',$data);
 		$this->load->view('preguntasView',$preguntasTabla);
 		$this->load->view('template/endHTML');
-		
+
 	}
+
+
 
 	public function savePregunta(){
 		$pregunta =	$this->input->post('pegrunta');

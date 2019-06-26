@@ -1,6 +1,6 @@
 <main class="page-content">
 	<div class="container-fluid ">
-		<h1 class="text-center">Respuestas</h1>
+		<h1 class="text-center">Respuestas de pregunta id: <span><?=$id?></span></h1>
 		<?= form_open('index.php/RespuestasController/saveRespuesta')?>
 		<?php
 		  $respuesta = array(

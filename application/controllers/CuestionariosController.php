@@ -11,7 +11,7 @@ class CuestionariosController extends CI_Controller {
 	public function index()
 	{
 		$this->load->view('template/headHTML');
-		$this->load->library('menu',array('Respuestas','Preguntas','Cuestionarios'));
+		$this->load->library('menu',array('Preguntas','Cuestionarios'));
 	  $data['menu'] = $this->menu->buildMenu();
 		$users = array('','');
 		$this->load->view('template/menuView',$data);
@@ -20,7 +20,7 @@ class CuestionariosController extends CI_Controller {
 
 	}
 	public function saveCuestionario(){
-		redirect(base_url('/index.php/CuestionariosController'));	
+		redirect(base_url('/index.php/CuestionariosController'));
 	}
 }
 ?>
