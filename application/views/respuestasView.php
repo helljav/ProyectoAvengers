@@ -4,11 +4,10 @@
 		<?= form_open('index.php/RespuestasController/saveRespuesta')?>
 		<?php
 		  $respuesta = array(
-		    'respuesta' => 'respuesta',
+		    'name' => 'respuesta',
 		    'placeholder' => 'No',
 		    'class' =>  'form-control'
-		  );
-
+		  );	  
 		?>
 		<div class="m-5" style="margin-top: 95px !important">
 
