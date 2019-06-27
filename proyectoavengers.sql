@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1:3306
--- Tiempo de generación: 26-06-2019 a las 14:24:30
+-- Tiempo de generación: 27-06-2019 a las 16:11:53
 -- Versión del servidor: 5.7.24
 -- Versión de PHP: 7.3.1
 
@@ -47,7 +47,15 @@ CREATE TABLE IF NOT EXISTS `preguntas` (
   `nombrePregunta` varchar(255) DEFAULT NULL,
   `pregunta` varchar(255) NOT NULL,
   PRIMARY KEY (`idPregunta`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `preguntas`
+--
+
+INSERT INTO `preguntas` (`idPregunta`, `nombrePregunta`, `pregunta`) VALUES
+(1, 'NULL', 'Sexo'),
+(2, 'NULL', 'Edad');
 
 -- --------------------------------------------------------
 
@@ -57,11 +65,11 @@ CREATE TABLE IF NOT EXISTS `preguntas` (
 
 DROP TABLE IF EXISTS `preguntas_cuestionario`;
 CREATE TABLE IF NOT EXISTS `preguntas_cuestionario` (
-  `idCuestionario` int(11) NOT NULL AUTO_INCREMENT,
+  `idCuestionario` int(11) NOT NULL,
   `idPregunta` int(11) NOT NULL,
   `secuencia` int(255) NOT NULL,
-  PRIMARY KEY (`idCuestionario`),
-  KEY `idPregunta` (`idPregunta`)
+  KEY `idPregunta` (`idPregunta`),
+  KEY `idCuestionario` (`idCuestionario`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -74,10 +82,19 @@ DROP TABLE IF EXISTS `respuestas`;
 CREATE TABLE IF NOT EXISTS `respuestas` (
   `idRespuesta` int(11) NOT NULL AUTO_INCREMENT,
   `idPregunta` int(11) NOT NULL,
-  `respuesta` int(11) NOT NULL,
+  `respuesta` varchar(255) NOT NULL,
   PRIMARY KEY (`idRespuesta`),
-  UNIQUE KEY `idPregunta` (`idPregunta`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  KEY `idPregunta` (`idPregunta`)
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `respuestas`
+--
+
+INSERT INTO `respuestas` (`idRespuesta`, `idPregunta`, `respuesta`) VALUES
+(9, 1, 'Masculino'),
+(10, 1, 'Trans'),
+(11, 1, 'Femenino');
 
 --
 -- Restricciones para tablas volcadas
@@ -87,14 +104,14 @@ CREATE TABLE IF NOT EXISTS `respuestas` (
 -- Filtros para la tabla `preguntas_cuestionario`
 --
 ALTER TABLE `preguntas_cuestionario`
-  ADD CONSTRAINT `preguntas_cuestionario_ibfk_1` FOREIGN KEY (`idPregunta`) REFERENCES `preguntas` (`idPregunta`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `preguntas_cuestionario_ibfk_2` FOREIGN KEY (`idCuestionario`) REFERENCES `cuestionarios` (`idCuestionario`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `preguntas_cuestionario_ibfk_1` FOREIGN KEY (`idPregunta`) REFERENCES `preguntas` (`idPregunta`),
+  ADD CONSTRAINT `preguntas_cuestionario_ibfk_2` FOREIGN KEY (`idCuestionario`) REFERENCES `cuestionarios` (`idCuestionario`);
 
 --
 -- Filtros para la tabla `respuestas`
 --
 ALTER TABLE `respuestas`
-  ADD CONSTRAINT `respuestas_ibfk_1` FOREIGN KEY (`idPregunta`) REFERENCES `preguntas` (`idPregunta`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `respuestas_ibfk_1` FOREIGN KEY (`idPregunta`) REFERENCES `preguntas` (`idPregunta`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
