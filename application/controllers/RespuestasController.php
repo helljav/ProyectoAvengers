@@ -15,11 +15,11 @@ class RespuestasController extends CI_Controller {
 		$users['id'] = $this->uri->segment(3);
 		$this->load->view('template/headHTML');
 		$this->load->library('menu',array('Preguntas','Cuestionarios'));
-	    $data['menu'] = $this->menu->buildMenu();
-		$users['users'] = NULL;
-		$this->load->view('template/menuView',$data);
-		$this->load->view('respuestasView',$users);
-		$this->load->view('template/endHTML');
+	    //$data['menu'] = $this->menu->buildMenu();
+		$users['users'] = $this->respuestas_model->obtenerRespuesta($this->uri->segment(3));
+		// $this->load->view('template/menuView',$data);
+		// $this->load->view('respuestasView',$users);
+		// $this->load->view('template/endHTML');
 	}
 
 

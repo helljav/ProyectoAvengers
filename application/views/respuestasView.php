@@ -40,7 +40,7 @@
 		  <?php if($users){ foreach ($users->result() as $item) {?>
 		      <tr>
 		        <th scope="row"> <?= $item->id;?> </th>
-		        <td> <?= $item->contenido;?> </td>
+		        <td> <?= $item->resultado;?> </td>
 						<td><a href='RespuestasController/editar/<?= $item->id;?>'>Editar</a> </td>
 		        <td><a href='RespuestasController/eliminar/<?= $item->id;?>'>Eliminar</a> </td>
 		      </tr>

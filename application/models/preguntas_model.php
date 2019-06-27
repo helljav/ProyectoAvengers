@@ -25,6 +25,7 @@ class Preguntas_model extends CI_Model{
         
     }
     function obtenerPregunta($id){
+        var_dump($id);
         // query con where
         $this->db->where('idPregunta',"$id");
         $query = $this->db->get('preguntas');
