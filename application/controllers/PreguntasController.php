@@ -37,9 +37,10 @@ class PreguntasController extends CI_Controller {
 	public function savePregunta(){
 		$pregunta =	$this->input->post('pegrunta');
 		$data = array(
-            'idPregunta' => 'NULL',
-            'pregunta' => $this->input->post('pregunta'),
-            'tipo' => $this->input->post('Options')
+			'idPregunta' => 'NULL',
+			//'nombrePregunta'=>'NULL',
+            'pregunta' => $this->input->post('pregunta')
+           
         );
 		$this->preguntas_model->crearPregunta($data);
 		redirect(base_url('/index.php/PreguntasController'));

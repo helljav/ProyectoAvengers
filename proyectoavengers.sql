@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.5
+-- version 4.8.4
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1:3306
--- Tiempo de generación: 26-06-2019 a las 14:07:18
--- Versión del servidor: 5.7.26
--- Versión de PHP: 7.2.18
+-- Tiempo de generación: 26-06-2019 a las 14:24:30
+-- Versión del servidor: 5.7.24
+-- Versión de PHP: 7.3.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -25,15 +25,15 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `cuestionario`
+-- Estructura de tabla para la tabla `cuestionarios`
 --
 
-DROP TABLE IF EXISTS `cuestionario`;
-CREATE TABLE IF NOT EXISTS `cuestionario` (
+DROP TABLE IF EXISTS `cuestionarios`;
+CREATE TABLE IF NOT EXISTS `cuestionarios` (
   `idCuestionario` int(11) NOT NULL AUTO_INCREMENT,
-  `nombre` varchar(255) NOT NULL,
+  `nombreCuestionario` varchar(255) NOT NULL,
   PRIMARY KEY (`idCuestionario`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -44,38 +44,25 @@ CREATE TABLE IF NOT EXISTS `cuestionario` (
 DROP TABLE IF EXISTS `preguntas`;
 CREATE TABLE IF NOT EXISTS `preguntas` (
   `idPregunta` int(11) NOT NULL AUTO_INCREMENT,
+  `nombrePregunta` varchar(255) DEFAULT NULL,
   `pregunta` varchar(255) NOT NULL,
-  `tipo` varchar(255) NOT NULL,
   PRIMARY KEY (`idPregunta`)
-) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
-
---
--- Volcado de datos para la tabla `preguntas`
---
-
-INSERT INTO `preguntas` (`idPregunta`, `pregunta`, `tipo`) VALUES
-(1, 'Hola', 'Cerrado'),
-(2, '¿cómo te llamas chiquita?', 'Cerrado'),
-(3, '', 'Cerrado'),
-(4, 'dsa', 'Cerrado'),
-(5, 'ds', 'Cerrado'),
-(6, '', 'Cerrado'),
-(7, '', 'Cerrado');
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `pregunta_cuestionario`
+-- Estructura de tabla para la tabla `preguntas_cuestionario`
 --
 
-DROP TABLE IF EXISTS `pregunta_cuestionario`;
-CREATE TABLE IF NOT EXISTS `pregunta_cuestionario` (
-  `idCuestionario` int(255) NOT NULL,
-  `idPregunta` int(255) NOT NULL,
+DROP TABLE IF EXISTS `preguntas_cuestionario`;
+CREATE TABLE IF NOT EXISTS `preguntas_cuestionario` (
+  `idCuestionario` int(11) NOT NULL AUTO_INCREMENT,
+  `idPregunta` int(11) NOT NULL,
   `secuencia` int(255) NOT NULL,
-  UNIQUE KEY `idCuestionario` (`idCuestionario`),
-  UNIQUE KEY `idPregunta` (`idPregunta`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+  PRIMARY KEY (`idCuestionario`),
+  KEY `idPregunta` (`idPregunta`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -86,11 +73,28 @@ CREATE TABLE IF NOT EXISTS `pregunta_cuestionario` (
 DROP TABLE IF EXISTS `respuestas`;
 CREATE TABLE IF NOT EXISTS `respuestas` (
   `idRespuesta` int(11) NOT NULL AUTO_INCREMENT,
-  `respuesta` varchar(255) NOT NULL,
-  `idPegunta` int(11) NOT NULL,
+  `idPregunta` int(11) NOT NULL,
+  `respuesta` int(11) NOT NULL,
   PRIMARY KEY (`idRespuesta`),
-  UNIQUE KEY `idPregunta` (`idPegunta`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+  UNIQUE KEY `idPregunta` (`idPregunta`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Restricciones para tablas volcadas
+--
+
+--
+-- Filtros para la tabla `preguntas_cuestionario`
+--
+ALTER TABLE `preguntas_cuestionario`
+  ADD CONSTRAINT `preguntas_cuestionario_ibfk_1` FOREIGN KEY (`idPregunta`) REFERENCES `preguntas` (`idPregunta`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `preguntas_cuestionario_ibfk_2` FOREIGN KEY (`idCuestionario`) REFERENCES `cuestionarios` (`idCuestionario`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Filtros para la tabla `respuestas`
+--
+ALTER TABLE `respuestas`
+  ADD CONSTRAINT `respuestas_ibfk_1` FOREIGN KEY (`idPregunta`) REFERENCES `preguntas` (`idPregunta`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
