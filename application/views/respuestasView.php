@@ -7,11 +7,18 @@
 		    'name' => 'respuesta',
 		    'placeholder' => 'No',
 		    'class' =>  'form-control'
-		  );	  
+		  );
+			$ids = array(
+				'name' => 'id',
+				'value' => $id,
+				'style' => 'visibility: hidden;'
+			);
 		?>
 		<div class="m-5" style="margin-top: 95px !important">
 
 		  <div class="form-group">
+				<?= form_input($ids) ?>
+				<br>
 		     <?= form_label('Contenido de la respuesta','respuesta') ?>
 		     <?= form_input($respuesta) ?>
 		   </div>
