@@ -6,7 +6,9 @@
 		  $respuesta = array(
 		    'name' => 'respuesta',
 		    'placeholder' => 'No',
-		    'class' =>  'form-control'
+			'class' =>  'form-control',
+			'required' => 'required'
+			
 		  );
 			$ids = array(
 				'name' => 'id',
