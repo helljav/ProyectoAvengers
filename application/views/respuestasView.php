@@ -39,10 +39,10 @@
 		    <tbody>
 		  <?php if($users){ foreach ($users->result() as $item) {?>
 		      <tr>
-		        <th scope="row"> <?= $item->id;?> </th>
-		        <td> <?= $item->resultado;?> </td>
-						<td><a href='RespuestasController/editar/<?= $item->id;?>'>Editar</a> </td>
-		        <td><a href='RespuestasController/eliminar/<?= $item->id;?>'>Eliminar</a> </td>
+		        <th scope="row"> <?= $item->idRespuesta;?> </th>
+		        <td> <?= $item->respuesta;?> </td>
+						<td><a href='RespuestasController/editar/<?= $item->idRespuesta;?>'>Editar</a> </td>
+		        <td><a href='RespuestasController/eliminar/<?= $item->idRespuesta;?>'>Eliminar</a> </td>
 		      </tr>
 		  <?php } } else{
 		    echo '<p>No contiene ningun objeto por ahora</p>';
