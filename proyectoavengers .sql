@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1:3306
--- Tiempo de generación: 27-06-2019 a las 16:11:53
+-- Tiempo de generación: 27-06-2019 a las 20:46:23
 -- Versión del servidor: 5.7.24
 -- Versión de PHP: 7.3.1
 
@@ -85,7 +85,7 @@ CREATE TABLE IF NOT EXISTS `respuestas` (
   `respuesta` varchar(255) NOT NULL,
   PRIMARY KEY (`idRespuesta`),
   KEY `idPregunta` (`idPregunta`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `respuestas`
@@ -94,7 +94,8 @@ CREATE TABLE IF NOT EXISTS `respuestas` (
 INSERT INTO `respuestas` (`idRespuesta`, `idPregunta`, `respuesta`) VALUES
 (9, 1, 'Masculino'),
 (10, 1, 'Trans'),
-(11, 1, 'Femenino');
+(11, 1, 'Femenino'),
+(12, 1, 'Hetero');
 
 --
 -- Restricciones para tablas volcadas
