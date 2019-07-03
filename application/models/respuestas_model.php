@@ -26,8 +26,10 @@ class Respuestas_model extends CI_Model{
         
     }
 
-    function obtenerPreguntas(){
-        $query = $this->db->get('respuestas');
+    function obtenerPregunta($id){
+        // query con where
+        $this->db->where('idPregunta',"$id");
+        $query = $this->db->get('preguntas');
         if($query->num_rows()>0) return $query;
         else return false;
         
