@@ -27,9 +27,8 @@
 		      <tr>
 		        <th scope="col">#</th>
 		        <th scope="col">Pregunta</th>
-		        <th scope="col">Agregar Respuestas</th>
 		        <th scope="col">Ver respuestas</th>
-		        <th scope="col">Editar</th>
+		        <th scope="col">Modificar pregunta</th>
 		        <th scope="col">Eliminar</th>
 		      </tr>
 		    </thead>
@@ -38,9 +37,8 @@
 		      <tr>
 		        <th scope="row"> <?= $item->idPregunta;?> </th>
 		        <td> <?= $item->pregunta;?> </td>
-		        <td><a href='RespuestasController/index/<?= $item->idPregunta;?>'>Agregar</a> </td>
-		        <td><a href='VerRespuestasController/index/<?= $item->idPregunta;?>'>Ver respuestas</a> </td>
-		        <td><a href='PreguntasController/eliminar/<?= $item->idPregunta;?>'>Editar</a> </td>
+		        <td><a href='RespuestasController/index/<?= $item->idPregunta;?>'>Ver respuestas</a></td>
+		        <td><a href='PreguntasController/eliminar/<?= $item->idPregunta;?>'>Modificar pregunta</a> </td>
 		        <td><a href='PreguntasController/editar/<?= $item->idPregunta;?>'>Eliminar</a> </td>
 		      </tr>
 		  <?php } } else{
