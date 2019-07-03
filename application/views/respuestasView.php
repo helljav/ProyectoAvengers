@@ -1,13 +1,20 @@
 <main class="page-content">
+
+	<?php
+		 foreach ($nombre->result() as $item) {
+			$nom= $item->pregunta;			
+		}
+	?>
 	<div class="container-fluid ">
-		<h1 class="text-center">Respuestas de pregunta id: <span><?=$id?></span></h1>
+		<h1 class="text-center">Respuestas de pregunta: <span><?= $nom?></span></h1>
 		<?= form_open('index.php/RespuestasController/saveRespuesta')?>
 		<?php
 		  $respuesta = array(
 		    'name' => 'respuesta',
-		    'placeholder' => 'No',
+		    'placeholder' => 'Escribe el contenido  de la respuesta',
 			'class' =>  'form-control',
-			'required' => 'required'
+			'required' => 'required',
+			'col'=>'col-12'
 			
 		  );
 			$ids = array(

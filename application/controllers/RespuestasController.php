@@ -17,6 +17,7 @@ class RespuestasController extends CI_Controller {
 		$this->load->library('menu',array('Preguntas','Cuestionarios'));
 	    $data['menu'] = $this->menu->buildMenu();
 		$users['users'] = $this->respuestas_model->obtenerRespuesta($this->uri->segment(3));
+		$users['nombre'] = $this->respuestas_model->obtenerPregunta($this->uri->segment(3));
 		$this->load->view('template/menuView',$data);
 		$this->load->view('respuestasView',$users);
 		$this->load->view('template/endHTML');
