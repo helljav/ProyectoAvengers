@@ -6,12 +6,14 @@
 		  $cuestionario = array(
 		    'name' => 'cuestionario',
 		    'placeholder' => 'Ingrese el nombre del cuestionario',
-		    'class' =>  'form-control'
+			'class' =>  'form-control',
+			'required' => 'required'
 		  );
 		  $descripcion = array(
 		    'name' => 'descripcion',
 		    'placeholder' => 'Ingrese una pequeña descripcion',
-		    'class' =>  'form-control'
+			'class' =>  'form-control',
+			'required' => 'required'
 		  );
 
 		?>
