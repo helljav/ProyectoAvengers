@@ -37,19 +37,19 @@
 		      <tr>
 		        <th scope="col">#</th>
 		        <th scope="col">Nombre</th>
-		        <th scope="col">Agregar Preguntas</th>
-		        <th scope="col">Editar</th>
+		        <th scope="col">Descripcion</th>
+		        <th scope="col">Modificar Cuestionario</th>
 		        <th scope="col">Eliminar</th>
 		      </tr>
 		    </thead>
 		    <tbody>
 		  <?php if($users){ foreach ($users->result() as $item) {?>
 		      <tr>
-		        <th scope="row"> <?= $item->id;?> </th>
-		        <td> <?= $item->contenido;?> </td>
-						<td><a href='CuestionariosController/agregaCuestionarios/<?= $item->id;?>'>Editar</a> </td>
-						<td><a href='CuestionariosController/editar/<?= $item->id;?>'>Editar</a> </td>
-		        <td><a href='CuestionariosController/eliminar/<?= $item->id;?>'>Eliminar</a> </td>
+				<th scope="row"> <?= $item->idCuestionario;?> </th>
+				<td> <?= $item->nombreCuestionario;?> </td>
+		        <td> <?= $item->descripcion;?> </td>
+						<td><a href='CuestionariosController/editar/<?= $item->idCuestionario;?>'>Editar</a> </td>
+		        <td><a href='CuestionariosController/eliminar/<?= $item->idCuestionario;?>'>Eliminar</a> </td>
 		      </tr>
 		  <?php } } else{
 		    echo '<p>No contiene ningun objeto por ahora</p>';
