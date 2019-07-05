@@ -3,9 +3,14 @@
 		<h1 class="text-center">Cuestionarios</h1>
 		<?= form_open('index.php/CuestionariosController/saveCuestionario')?>
 		<?php
-		  $respuesta = array(
-		    'cuestionario' => 'cuestionario',
-		    'placeholder' => 'Nombre',
+		  $cuestionario = array(
+		    'name' => 'cuestionario',
+		    'placeholder' => 'Ingrese el nombre del cuestionario',
+		    'class' =>  'form-control'
+		  );
+		  $descripcion = array(
+		    'name' => 'descripcion',
+		    'placeholder' => 'Ingrese una pequeña descripcion',
 		    'class' =>  'form-control'
 		  );
 
@@ -13,9 +18,15 @@
 		<div class="m-5" style="margin-top: 95px !important">
 
 		  <div class="form-group">
-		     <?= form_label('Nombre','nombre') ?>
-		     <?= form_input($respuesta) ?>
+		     <?= form_label('Nombre del cuestionario','nombre') ?>
+		     <?= form_input($cuestionario) ?>
 		   </div>
+		  <br>
+		   <div class="form-group">
+		     <?= form_label('Descripcion','desccripcion') ?>
+		     <?= form_input($descripcion) ?>
+		   </div>
+
 		   <?= form_submit(' ','Guardar','class="btn btn-dark"') ?>
 		</div>
 		<?= form_close() ?>
