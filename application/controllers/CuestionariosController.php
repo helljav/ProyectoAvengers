@@ -24,7 +24,7 @@ class CuestionariosController extends CI_Controller {
 		$cuestionario =	$this->input->post('cuestionario');
 		$data = array(
 			'idCuestionario' => 'NULL',
-			'cuestionario' => $this->input->post('cuestionario')
+			'cuestionario' => $this->input->post('cuestionario'),
 			'descripcion' => $this->input->post('descripcion')
            
 		);
