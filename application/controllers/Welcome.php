@@ -21,7 +21,7 @@ class Welcome extends CI_Controller {
 	public function index(){
 		$this->load->view('template/headHTML');
 		$this->load->library('menu',array('Respuestas','Preguntas','Cuestionarios'));
-	  $data['menu'] = $this->menu->buildMenu();
+	  	$data['menu'] = $this->menu->buildMenu();
 
 		$this->load->view('template/menuView',$data);
 		//$this->load->view('welcome_view');
