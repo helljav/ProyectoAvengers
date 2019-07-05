@@ -1,14 +1,5 @@
 <?php
-/*
-	Ejemplo dropdown
-	<div class="form-group">
 
-		 <?= form_label('Tipo','tipo') ?>
-		 <div class="dropdown">
-			<?= form_dropdown ( 'Options' , $options,'Cerrado', 'class="my_dropdown"'); ?>
-		 </div>
-	 </div>
-*/
 
 class PreguntasController extends CI_Controller {
 
