@@ -8,7 +8,7 @@ class Cuestionarios_model extends CI_Model{
 
 
     function crearCuestionario($data){
-        //preguntas es el nombre de la base de la tabla
+        //cuestionarios es el nombre de la base de la tabla
         //El array corresponde a los datos a insertar
         $this->db->insert('cuestionarios',array(
             'idCuestionario' => $data['idCuestionario'],
@@ -17,9 +17,8 @@ class Cuestionarios_model extends CI_Model{
         ));
 
     }
-    function obtenerCuestionarios($id){
+    function obtenerCuestionarios(){
         // query con where
-        $this->db->where('idCuestionario',"$id");
         $query = $this->db->get('cuestionarios');
         if($query->num_rows()>0) return $query;
         else return false;

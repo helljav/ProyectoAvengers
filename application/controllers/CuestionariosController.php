@@ -14,7 +14,7 @@ class CuestionariosController extends CI_Controller {
 		$this->load->view('template/headHTML');
 		$this->load->library('menu',array('Preguntas','Cuestionarios'));
 	  	$data['menu'] = $this->menu->buildMenu();
-		$users = array('','');
+		$users ['users'] = $this->cuestionarios_model->obtenerCuestionarios();
 		$this->load->view('template/menuView',$data);
 		$this->load->view('cuestionariosView',$users);
 		$this->load->view('template/endHTML');
