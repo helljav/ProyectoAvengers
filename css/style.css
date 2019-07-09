@@ -511,3 +511,67 @@ select:focus{ outline: none;}
 	right:0px;
 	pointer-events: none;
 }
+
+
+.ico-see, .ico-update, .ico-delete, .ico-add{
+  font-size: 24px;
+}
+
+.ico-see{
+  color: rgb(30, 170, 201)
+}
+.ico-see:hover{
+  color: rgb(93, 145, 157)
+}
+
+.ico-update{
+  color: rgb(230, 213, 63)
+}
+.ico-update:hover{
+  color: rgb(214, 198, 57)
+}
+.ico-delete{
+  color: rgb(209, 62, 62)
+}
+.ico-delete:hover{
+  color: rgb(167, 84, 84)
+}
+.ico-add{
+  color: rgb(62, 209, 68)
+}
+.ico-add:hover{
+  color: rgb(88, 167, 84)
+}
+.pasar-der, .pasar-iz{
+  cursor: pointer;
+  font-size: 24px;
+  display: block;
+  text-align: center;
+  position: relative;
+  top: 38%;
+}
+
+.pasar-der{
+  border: none;
+  background: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: rgb(32, 129, 230);
+}
+.pasar-iz{
+  border: none;
+  background: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: rgb(32, 129, 230);
+}
+#caja_rem, #caja_add, #idm, #idn{
+  display: none;
+}
+
+.col-1 form{
+
+    position: relative;
+    top: 39%;
+
+}
