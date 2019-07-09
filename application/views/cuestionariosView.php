@@ -34,13 +34,14 @@
 		<?= form_close() ?>
 		<div class="container">
 
-		  <table class="table">
+		  <table class="table" style="text-align:center">
 		    <thead class="thead-dark">
 		      <tr>
 		        <th scope="col">#</th>
 		        <th scope="col">Nombre</th>
 		        <th scope="col">Descripcion</th>
-		        <th scope="col">Modificar Cuestionario</th>
+		        <th scope="col">Modificar cuestionario</th>
+		        <th scope="col">Agergar pregunta a cuestionario</th>
 		        <th scope="col">Eliminar</th>
 		      </tr>
 		    </thead>
@@ -50,8 +51,9 @@
 				<th scope="row"> <?= $item->idCuestionario;?> </th>
 				<td> <?= $item->nombreCuestionario;?> </td>
 		        <td> <?= $item->descripcion;?> </td>
-						<td><a href='CuestionariosController/editar/<?= $item->idCuestionario;?>'>Editar</a> </td>
-		        <td><a href='CuestionariosController/eliminar/<?= $item->idCuestionario;?>'>Eliminar</a> </td>
+						<td><a href='CuestionariosController/editar/<?= $item->idCuestionario;?>'><i class="fas fa-pen ico-update"></i></a> </td>
+						<td><a href='PregCuestController/index/<?= $item->idCuestionario;?>'><i class="far fa-plus-square ico-add"></i></a> </td>
+		        <td><a href='CuestionariosController/eliminar/<?= $item->idCuestionario;?>'><i class="fas fa-trash ico-delete"></i></a> </td>
 		      </tr>
 		  <?php } } else{
 		    echo '<p>No contiene ningun objeto por ahora</p>';

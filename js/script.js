@@ -32,3 +32,9 @@ $("#show-sidebar").click(function() {
 
 
 });
+
+
+$('.list-group').on('click', 'a', function() {
+    $('.list-group a.active').removeClass('active');
+    $(this).addClass('active');
+});

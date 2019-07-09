@@ -2,7 +2,7 @@
 
 	<?php
 		 foreach ($nombre->result() as $item) {
-			$nom= $item->pregunta;			
+			$nom= $item->pregunta;
 		}
 	?>
 	<div class="container-fluid ">
@@ -15,7 +15,7 @@
 			'class' =>  'form-control',
 			'required' => 'required',
 			'col'=>'col-12'
-			
+
 		  );
 			$ids = array(
 				'name' => 'id',
@@ -36,7 +36,7 @@
 		<?= form_close() ?>
 		<div class="container">
 
-		  <table class="table">
+		  <table class="table" style="text-align:center">
 		    <thead class="thead-dark">
 		      <tr>
 		        <th scope="col">#</th>
@@ -50,8 +50,8 @@
 		      <tr>
 		        <th scope="row"> <?= $item->idRespuesta;?> </th>
 		        <td> <?= $item->respuesta;?> </td>
-						<td><a href='RespuestasController/editar/<?= $item->idRespuesta;?>'>Editar</a> </td>
-		        <td><a href='RespuestasController/eliminar/<?= $item->idRespuesta;?>'>Eliminar</a> </td>
+						<td><a href='RespuestasController/editar/<?= $item->idRespuesta;?>'><i class="fas fa-pen ico-update"></i></a> </td>
+		        <td><a href='RespuestasController/eliminar/<?= $item->idRespuesta;?>'><i class="fas fa-trash ico-delete"></i></a> </td>
 		      </tr>
 		  <?php } } else{
 		    echo '<p>No contiene ningun objeto por ahora</p>';
