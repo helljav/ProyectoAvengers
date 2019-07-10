@@ -2,22 +2,27 @@
 
 class PregCuestController extends CI_Controller {
 
+
+
 	function __construct(){
 		parent::__construct();
 		$this->load->helper('form');
     $this->load->model('preguntas_model');
+		$this->load->model('cuestionarios_model');
 	}
 
 	public function index()
 	{
-    $users['id'] = $this->uri->segment(3);
+    $users['id'] = $this->uri->segment(3);// id del cuestionarios   from * PreguntasCuestionario where idCuestionario = $users['id']
 		$this->load->view('template/headHTML');
 		$this->load->library('menu',array('Preguntas','Cuestionarios'));
 	  $data['menu'] = $this->menu->buildMenu();
 		$users['users'] = '';
-		$users['nombre'] = 'Yo soy un nombre';
+		$users['nombre'] = $this->cuestionarios_model->obtenerCuestionario($users['id']);
 
     $users['preguntas'] = $this->preguntas_model->obtenerPreguntas();
+
+		//Este arreglo va a obtener el querizaso de arriba
     $users['preguntasSelected'] = null; //obtener todas las preguntas que contiene el '$this->uri->segment(3);' cuestionario
 
     /*quitar de  $users['preguntas']  toda pregunta que esta contenida en $users['preguntasSelected']*/
@@ -39,7 +44,7 @@ class PregCuestController extends CI_Controller {
 		echo $this->input->post('caja_rem') . ' ' . $this->input->post('idm');
 
 		/*Al final recargara la p[agina]*/
-		//redirect(base_url('/index.php/PregCuestController'));
+		//redirect(base_url('/index.php/PregCuestController/'));
 	}
 	public function setResInCues(){
 		/*Agregar item pregunta cuestionario*/

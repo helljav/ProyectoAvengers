@@ -18,6 +18,7 @@ class CuestionariosController extends CI_Controller {
 		$this->load->view('template/menuView',$data);
 		$this->load->view('cuestionariosView',$users);
 		$this->load->view('template/endHTML');
+		//jeje
 
 	}
 	public function saveCuestionario(){
@@ -26,7 +27,7 @@ class CuestionariosController extends CI_Controller {
 			'idCuestionario' => 'NULL',
 			'cuestionario' => $this->input->post('cuestionario'),
 			'descripcion' => $this->input->post('descripcion')
-           
+
 		);
 		$this->cuestionarios_model->crearCuestionario($data);
 		redirect(base_url('/index.php/CuestionariosController'));
