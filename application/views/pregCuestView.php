@@ -1,6 +1,11 @@
+<?php
+   foreach ($nombre->result() as $item) {
+    $nom= $item->nombreCuestionario;
+  }
+?>
 <main class="page-content">
   <div class="container-fluid ">
-  	<h1 class="text-center">Cuestionario: <?= $nombre ?></h1>
+  	<h1 class="text-center">Cuestionario: <?= $nom?></h1>
     <div class="row" style="margin-top:50px">
 
       <div class="col">
