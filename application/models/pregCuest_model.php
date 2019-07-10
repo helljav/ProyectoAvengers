@@ -17,11 +17,11 @@ class PregCuest_model extends CI_Model{
         ));
 
     }
-    function obtenerPreguntasCuest(){
-        // query con where
-        $query = $this->db->get('preguntas_cuestionario');
-        if($query->num_rows()>0) return $query;
-        else return null;
+    function obtenerPreguntasCuest($id){
+
+      $query = $this->db->query('select c.idCuestionario, c.idPregunta, p.pregunta from preguntas p, preguntas_cuestionario c where idCuestionario='.$id.' and p.idPregunta=c.idPregunta');
+      if($query->num_rows()>0) return $query;
+      else return null;
 
     }
 
@@ -31,6 +31,13 @@ class PregCuest_model extends CI_Model{
         $query = $this->db->get('preguntas_cuestionario');
         if($query->num_rows()>0) return $query;
         else return false;
+
+    }
+
+
+    function Delete($idCuestionario,$idPregunta){
+        // query con where
+        $query = $this->db->query('delete from preguntas_cuestionario where idCuestionario='."$idCuestionario".' and idPregunta='."$idPregunta");
 
     }
 }

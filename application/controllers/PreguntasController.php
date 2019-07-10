@@ -15,7 +15,7 @@ class PreguntasController extends CI_Controller {
 	public function index(){
 		$this->load->view('template/headHTML');
 		$this->load->library('menu',array('Preguntas','Cuestionarios'));
-	    $data['menu'] = $this->menu->buildMenu();
+	  $data['menu'] = $this->menu->buildMenu();
 		$preguntasTabla['users'] =  $this->preguntas_model->obtenerPreguntas();
 		$this->load->view('template/menuView',$data);
 		$this->load->view('preguntasView',$preguntasTabla);
@@ -31,7 +31,7 @@ class PreguntasController extends CI_Controller {
 			'idPregunta' => 'NULL',
 			//'nombrePregunta'=>'NULL',
             'pregunta' => $this->input->post('pregunta')
-           
+
         );
 		$this->preguntas_model->crearPregunta($data);
 		redirect(base_url('/index.php/PreguntasController'));
