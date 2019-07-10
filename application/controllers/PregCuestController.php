@@ -24,8 +24,8 @@ class PregCuestController extends CI_Controller {
     $users['preguntas'] = $this->preguntas_model->obtenerPreguntas();
 
 		//Este arreglo va a obtener el querizaso de arriba
-    $users['preguntasSelected'] = $this->pregCuest_model->obtenerPregCuestionario($users['id']); //obtener todas las preguntas que contiene el '$this->uri->segment(3);' cuestionario
-
+    $users['preguntasSelected'] = $this->pregCuest_model->obtenerPreguntasCuest(); //obtener todas las preguntas que contiene el '$this->uri->segment(3);' cuestionario
+		//var_dump($users['preguntasSelected']);
     /*quitar de  $users['preguntas']  toda pregunta que esta contenida en $users['preguntasSelected']*/
 		/*
 
