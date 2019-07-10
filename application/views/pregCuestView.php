@@ -25,11 +25,13 @@
     		  $idPreguntaAdd = array(
     		    'name' => 'caja_add',
     		    'id' => 'caja_add',
-    		  );
+            'required' => 'required'
+          );
           $idn = array(
     		    'name' => 'idn',
     		    'id' => 'idn',
-    		    'value' => $id,
+    		    'value' => $id
+
     		  );
     		  ?>
         <?= form_input($idPreguntaAdd) ?>
@@ -45,12 +47,14 @@
     		  $idPreguntaRem = array(
     		    'name' => 'caja_rem',
     		    'id' => 'caja_rem',
+            'required' => 'required'
     		  );
 
     		  $idm = array(
     		    'name' => 'idm',
     		    'id' => 'idm',
     		    'value' => $id,
+
     		  );
     		  ?>
         <?= form_input($idPreguntaRem) ?>

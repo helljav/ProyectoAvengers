@@ -21,11 +21,14 @@ class PregCuestController extends CI_Controller {
 	  $data['menu'] = $this->menu->buildMenu();
 		$users['users'] = '';
 		$users['nombre'] = $this->cuestionarios_model->obtenerCuestionario($users['id']);
-    $users['preguntas'] = $this->preguntas_model->obtenerPreguntas();
+    $users['preguntas'] = $this->preguntas_model->findAll($users['id']);
 
 		//Este arreglo va a obtener el querizaso de arriba
-    $users['preguntasSelected'] = $this->pregCuest_model->obtenerPregCuestionario($users['id']); //obtener todas las preguntas que contiene el '$this->uri->segment(3);' cuestionario
+    $users['preguntasSelected'] = $this->pregCuest_model->obtenerPreguntasCuest($users['id']); //obtener todas las preguntas que contiene el '$this->uri->segment(3);' cuestionario
 
+
+
+		//var_dump($users['preguntasSelected']);
     /*quitar de  $users['preguntas']  toda pregunta que esta contenida en $users['preguntasSelected']*/
 		/*
 
@@ -40,13 +43,21 @@ class PregCuestController extends CI_Controller {
 
 	}
 	public function removeResInCues(){
-		$idCuestionario = $this->input->post('idn');
+		$idCuestionario = $this->input->post('idm');
 		/*Eliminar item pregunta cuestionario*/
-		echo $this->input->post('caja_rem') . ' ' . $this->input->post('idm');
 
+		if(NULL!=$this->input->post('caja_rem')){
+			$this->pregCuest_model->Delete($idCuestionario,$this->input->post('caja_rem') );
+		}
 		/*Al final recargara la p[agina]*/
 		redirect(base_url('/index.php/PregCuestController/index/'."$idCuestionario"));
 	}
+
+
+
+
+
+
 
 	//Funcion que se ejecuta cuando le das el boton '>'
 	public function setResInCues(){
@@ -57,7 +68,9 @@ class PregCuestController extends CI_Controller {
 			'idCuestionario'=>"$idCuestionario",
 			'secuencia' => "1"
 		);
-		$this->pregCuest_model->crearPreguntasCuest($data);
+		if (NULL!=$idCuestionario = $this->input->post('idn')) {
+			$this->pregCuest_model->crearPreguntasCuest($data);
+		}
 		//echo $this->input->post('caja_add') . ' ' . $this->input->post('idn');
 		/*Al final recargara la p[agina]*/
 		redirect(base_url('/index.php/PregCuestController/index/'."$idCuestionario"));
