@@ -566,7 +566,7 @@ select:focus{ outline: none;}
   color: rgb(32, 129, 230);
 }
 #caja_rem, #caja_add, #idm, #idn{
-  display: ;
+  display: none ;
 }
 
 .col-1 form{

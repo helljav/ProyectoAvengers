@@ -10,25 +10,25 @@ class PregCuest_model extends CI_Model{
     function crearPreguntasCuest($data){
         //cuestionarios es el nombre de la base de la tabla
         //El array corresponde a los datos a insertar
-        $this->db->insert('cuestionarios',array(
+        $this->db->insert('preguntas_cuestionario',array(
             'idCuestionario' => $data['idCuestionario'],
-            'nombreCuestionario' => $data['cuestionario'],
-            'descripcion' => $data['descripcion']
+            'idPregunta' => $data['idPregunta'],
+            'secuencia' => $data['secuencia']
         ));
 
     }
-    function obtenerpregCuest(){
+    function obtenerPreguntasCuest(){
         // query con where
-        $query = $this->db->get('cuestionarios');
+        $query = $this->db->get('preguntas_cuestionario');
         if($query->num_rows()>0) return $query;
-        else return false;
+        else return null;
 
     }
 
-    function obtenerCuestionario($id){
+    function obtenerPregCuestionario($id){
         // query con where
         $this->db->where('idCuestionario',"$id");
-        $query = $this->db->get('cuestionarios');
+        $query = $this->db->get('preguntas_cuestionario');
         if($query->num_rows()>0) return $query;
         else return false;
 
