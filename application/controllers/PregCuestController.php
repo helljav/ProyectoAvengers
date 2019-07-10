@@ -47,10 +47,18 @@ class PregCuestController extends CI_Controller {
 		/*Al final recargara la p[agina]*/
 		redirect(base_url('/index.php/PregCuestController/index/'."$idCuestionario"));
 	}
+
+	//Funcion que se ejecuta cuando le das el boton '>'
 	public function setResInCues(){
 		$idCuestionario = $this->input->post('idn');
 		/*Agregar item pregunta cuestionario*/
-		echo $this->input->post('caja_add') . ' ' . $this->input->post('idn');
+		$data = array(
+			'idPregunta' => $this->input->post('caja_add'),
+			'idCuestionario'=>"$idCuestionario",
+			'secuencia' => "1"
+		);
+		$this->pregCuest_model->crearPreguntasCuest($data);
+		//echo $this->input->post('caja_add') . ' ' . $this->input->post('idn');
 		/*Al final recargara la p[agina]*/
 		redirect(base_url('/index.php/PregCuestController/index/'."$idCuestionario"));
 	}
