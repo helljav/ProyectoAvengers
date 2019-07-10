@@ -69,7 +69,7 @@
         <h3 class="text-center" style="margin-bottom:20px;">Preguntas seleccionadas</h3>
         <div class="list-group der">
           <?php if($preguntasSelected){ foreach ($preguntasSelected->result() as $item) {?>
-            <a  class="list-group-item list-group-item-action"><?= $item->idPregunta;?> - <?= $item->pregunta;?></a>
+            <a  class="list-group-item list-group-item-action"><?= $item->idPregunta;?> - <?= $item->idCuestionario;?></a>
     		  <?php } } else{
     		    echo '<p>No contiene ningun objeto por ahora</p>';
     		  }?>
