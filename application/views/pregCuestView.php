@@ -25,11 +25,13 @@
     		  $idPreguntaAdd = array(
     		    'name' => 'caja_add',
     		    'id' => 'caja_add',
-    		  );
+            'required' => 'required'
+          );
           $idn = array(
     		    'name' => 'idn',
     		    'id' => 'idn',
-    		    'value' => $id,
+    		    'value' => $id
+
     		  );
     		  ?>
         <?= form_input($idPreguntaAdd) ?>
@@ -45,12 +47,14 @@
     		  $idPreguntaRem = array(
     		    'name' => 'caja_rem',
     		    'id' => 'caja_rem',
+            'required' => 'required'
     		  );
 
     		  $idm = array(
     		    'name' => 'idm',
     		    'id' => 'idm',
     		    'value' => $id,
+
     		  );
     		  ?>
         <?= form_input($idPreguntaRem) ?>
@@ -69,7 +73,7 @@
         <h3 class="text-center" style="margin-bottom:20px;">Preguntas seleccionadas</h3>
         <div class="list-group der">
           <?php if($preguntasSelected){ foreach ($preguntasSelected->result() as $item) {?>
-            <a  class="list-group-item list-group-item-action"><?= $item->idPregunta;?> - <?= $item->idCuestionario;?></a>
+            <a  class="list-group-item list-group-item-action"><?= $item->idPregunta;?> - <?= $item->pregunta;?></a>
     		  <?php } } else{
     		    echo '<p>No contiene ningun objeto por ahora</p>';
     		  }?>
