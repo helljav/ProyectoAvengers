@@ -6,14 +6,22 @@
 		  $cuestionario = array(
 		    'name' => 'cuestionario',
 		    'placeholder' => 'Ingrese el nombre del cuestionario',
-			'class' =>  'form-control',
-			'required' => 'required'
+				'class' =>  'form-control',
+				'required' => 'required',
+				'type'=>'text',
+				'maxlength'=>"100",
+				 'size'=>"15"
 		  );
 		  $descripcion = array(
 		    'name' => 'descripcion',
 		    'placeholder' => 'Ingrese una pequeña descripcion',
 			'class' =>  'form-control',
-			'required' => 'required'
+			'required' => 'required',
+			'type'=>'text',
+			'maxlength'=>"100",
+			'size'=>"15"
+			 // 'cols'=>"4",
+			 // 'rows' =>"4"
 		  );
 
 		?>
@@ -34,7 +42,7 @@
 		<?= form_close() ?>
 		<div class="container">
 
-		  <table class="table" style="text-align:center">
+		  <table class="table" style="text-align:left">
 		    <thead class="thead-dark">
 		      <tr>
 		        <th scope="col">#</th>

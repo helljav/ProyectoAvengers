@@ -30,7 +30,8 @@
           $idn = array(
     		    'name' => 'idn',
     		    'id' => 'idn',
-    		    'value' => $id
+    		    'value' => $id,
+            'type' => 'text'
 
     		  );
     		  ?>

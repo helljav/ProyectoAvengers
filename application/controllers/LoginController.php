@@ -11,10 +11,12 @@ class LoginController extends CI_Controller {
 
 	}
 
+
+
 	public function index()
 	{
     $this->load->view('template/headHTML');
-    $this->load->view('login.php');
+    $this->load->view('loginView.php');
     $this->load->view('template/endHTML');
 	}
 

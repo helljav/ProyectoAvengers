@@ -93,11 +93,12 @@
 
   <?= form_open('index.php/LoginController/log') ?>
   <?php
-    $email = array(
-      'name' => 'email',
-      'id' => 'email',
+    $usuario = array(
+      'name' => 'usuario',
+      //'id' => 'email',
       'placeholder' => 'Escribe una pregunta',
       'class' =>  'label',
+			'type' => 'text'
 
     );
     $pass = array(
@@ -112,7 +113,7 @@
   <div class="m-5" style="margin-top: 0px !important">
     <div class="inputGroup inputGroup1">
        <?= form_label('Email','email', 'class="label" for="email1"') ?>
-       <?= form_input($email) ?>
+       <?= form_input($usuario) ?>
     </div>
     <div class="inputGroup inputGroup2">
        <?= form_label('Password','password', 'for="password"') ?>
