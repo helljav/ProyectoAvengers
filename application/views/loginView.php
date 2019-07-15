@@ -95,8 +95,8 @@
   <?php
     $usuario = array(
       'name' => 'usuario',
-      //'id' => 'email',
-      'placeholder' => 'Escribe una pregunta',
+      'id' => 'email',
+      'placeholder' => 'Escribe el nombre de usuario',
       'class' =>  'label',
 			'type' => 'text'
 
@@ -104,7 +104,7 @@
     $pass = array(
       'name' => 'password',
       'id' => 'password',
-      'placeholder' => 'Escribe una pregunta',
+      'placeholder' => 'Escribe tu password',
       'type' => 'password',
       'class' =>  'password',
 
@@ -112,7 +112,7 @@
   ?>
   <div class="m-5" style="margin-top: 0px !important">
     <div class="inputGroup inputGroup1">
-       <?= form_label('Email','email', 'class="label" for="email1"') ?>
+       <?= form_label('Usuario','email', 'class="label" for="usuario"') ?>
        <?= form_input($usuario) ?>
     </div>
     <div class="inputGroup inputGroup2">
