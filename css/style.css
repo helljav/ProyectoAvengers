@@ -637,7 +637,7 @@ div.otro .inputGroup {
 }
 div.otro .inputGroup:last-of-type {
   margin-bottom: 0;
-  background: #bedef5;
+  background: #3a5e77;
 }
 div.otro label {
   margin: 0 0 12px;
@@ -683,7 +683,7 @@ div.otro input {
   box-shadow: none;
   width: 100%;
   height: 65px;
-  color: #4e8fc5;
+  color: #fff;
   font-weight: 600;
   font-family: inherit;
   transition: background-color 0.2s ease-out;
