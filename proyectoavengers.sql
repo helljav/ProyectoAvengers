@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1:3306
--- Tiempo de generación: 05-07-2019 a las 13:24:24
+-- Tiempo de generación: 14-07-2019 a las 22:09:55
 -- Versión del servidor: 5.7.24
 -- Versión de PHP: 7.3.1
 
@@ -34,7 +34,16 @@ CREATE TABLE IF NOT EXISTS `cuestionarios` (
   `nombreCuestionario` varchar(255) NOT NULL,
   `descripcion` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`idCuestionario`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `cuestionarios`
+--
+
+INSERT INTO `cuestionarios` (`idCuestionario`, `nombreCuestionario`, `descripcion`) VALUES
+(1, 'julio', 'iglesias'),
+(2, 'Basico', 'Cuestionario con preguntas basicas'),
+(13, 'Acoso sexual', 'Saber la informacion sobre el acoso sexual dentro de la unidad');
 
 -- --------------------------------------------------------
 
@@ -48,7 +57,7 @@ CREATE TABLE IF NOT EXISTS `preguntas` (
   `nombrePregunta` varchar(255) DEFAULT NULL,
   `pregunta` varchar(255) NOT NULL,
   PRIMARY KEY (`idPregunta`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `preguntas`
@@ -58,7 +67,10 @@ INSERT INTO `preguntas` (`idPregunta`, `nombrePregunta`, `pregunta`) VALUES
 (1, 'NULL', 'Sexo'),
 (2, 'NULL', 'Edad'),
 (3, NULL, 'Nivel educativo maximo'),
-(4, NULL, 'Nivel de ingreso');
+(4, NULL, 'Nivel de ingreso'),
+(5, NULL, 'Estado civil'),
+(6, NULL, 'Lugar de nacimiento'),
+(7, NULL, '¿Haz sufrido acoso dentro de la UAM-iztapalapa?');
 
 -- --------------------------------------------------------
 
@@ -71,9 +83,19 @@ CREATE TABLE IF NOT EXISTS `preguntas_cuestionario` (
   `idCuestionario` int(11) NOT NULL,
   `idPregunta` int(11) NOT NULL,
   `secuencia` int(255) NOT NULL,
-  KEY `idPregunta` (`idPregunta`),
-  KEY `idCuestionario` (`idCuestionario`)
+  KEY `preguntas_cuestionario_ibfk_1` (`idPregunta`),
+  KEY `preguntas_cuestionario_ibfk_2` (`idCuestionario`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `preguntas_cuestionario`
+--
+
+INSERT INTO `preguntas_cuestionario` (`idCuestionario`, `idPregunta`, `secuencia`) VALUES
+(1, 4, 1),
+(13, 1, 1),
+(13, 2, 1),
+(13, 7, 1);
 
 -- --------------------------------------------------------
 
@@ -87,8 +109,8 @@ CREATE TABLE IF NOT EXISTS `respuestas` (
   `idPregunta` int(11) NOT NULL,
   `respuesta` varchar(255) NOT NULL,
   PRIMARY KEY (`idRespuesta`),
-  KEY `idPregunta` (`idPregunta`)
-) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=latin1;
+  KEY `respuestas_ibfk_1` (`idPregunta`)
+) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `respuestas`
@@ -110,7 +132,41 @@ INSERT INTO `respuestas` (`idRespuesta`, `idPregunta`, `respuesta`) VALUES
 (25, 4, '<2699'),
 (26, 4, '2700-6799'),
 (27, 4, '6800'),
-(28, 4, '11600-3499');
+(28, 4, '11600-3499'),
+(29, 5, 'Casado'),
+(30, 5, 'Soltero'),
+(31, 5, 'Es complicado'),
+(32, 5, 'Viudo'),
+(33, 1, 'Mucho');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `roles`
+--
+
+DROP TABLE IF EXISTS `roles`;
+CREATE TABLE IF NOT EXISTS `roles` (
+  `idRol` int(11) NOT NULL AUTO_INCREMENT,
+  `nombreRol` varchar(255) NOT NULL,
+  PRIMARY KEY (`idRol`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `usuarios`
+--
+
+DROP TABLE IF EXISTS `usuarios`;
+CREATE TABLE IF NOT EXISTS `usuarios` (
+  `idUsuario` int(11) NOT NULL AUTO_INCREMENT,
+  `idRol` int(11) NOT NULL,
+  `nombreUsuario` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  PRIMARY KEY (`idUsuario`),
+  KEY `idRol` (`idRol`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Restricciones para tablas volcadas
@@ -120,14 +176,20 @@ INSERT INTO `respuestas` (`idRespuesta`, `idPregunta`, `respuesta`) VALUES
 -- Filtros para la tabla `preguntas_cuestionario`
 --
 ALTER TABLE `preguntas_cuestionario`
-  ADD CONSTRAINT `preguntas_cuestionario_ibfk_1` FOREIGN KEY (`idPregunta`) REFERENCES `preguntas` (`idPregunta`),
-  ADD CONSTRAINT `preguntas_cuestionario_ibfk_2` FOREIGN KEY (`idCuestionario`) REFERENCES `cuestionarios` (`idCuestionario`);
+  ADD CONSTRAINT `preguntas_cuestionario_ibfk_1` FOREIGN KEY (`idPregunta`) REFERENCES `preguntas` (`idPregunta`) ON UPDATE CASCADE,
+  ADD CONSTRAINT `preguntas_cuestionario_ibfk_2` FOREIGN KEY (`idCuestionario`) REFERENCES `cuestionarios` (`idCuestionario`) ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `respuestas`
 --
 ALTER TABLE `respuestas`
-  ADD CONSTRAINT `respuestas_ibfk_1` FOREIGN KEY (`idPregunta`) REFERENCES `preguntas` (`idPregunta`);
+  ADD CONSTRAINT `respuestas_ibfk_1` FOREIGN KEY (`idPregunta`) REFERENCES `preguntas` (`idPregunta`) ON UPDATE CASCADE;
+
+--
+-- Filtros para la tabla `usuarios`
+--
+ALTER TABLE `usuarios`
+  ADD CONSTRAINT `usuarios_ibfk_1` FOREIGN KEY (`idRol`) REFERENCES `roles` (`idRol`) ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
