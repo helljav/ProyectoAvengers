@@ -18,7 +18,9 @@ class CuestionariosController extends CI_Controller {
 		$this->load->view('template/menuView',$data);
 		$this->load->view('cuestionariosView',$users);
 		$this->load->view('template/endHTML');
-		//jeje
+		//jeje  
+		//jeje x2
+		//jeje x3
 
 	}
 	public function saveCuestionario(){
