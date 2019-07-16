@@ -7,13 +7,15 @@
 		    'name' => 'cuestionario',
 		    'placeholder' => 'Ingrese el nombre del cuestionario',
 			'class' =>  'form-control',
-			'required' => 'required'
+			'required' => 'required',
+			'maxlength' => "115"
 		  );
 		  $descripcion = array(
 		    'name' => 'descripcion',
 		    'placeholder' => 'Ingrese una pequeña descripcion',
 			'class' =>  'form-control',
-			'required' => 'required'
+			'required' => 'required',
+			'maxlength' => "115"
 		  );
 
 		?>

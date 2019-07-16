@@ -24,9 +24,17 @@ class LoginController extends CI_Controller {
     $data = array(
 			'idUsuario' => $this->input->post('usuario'),
       'password' => $this->input->post('password')
-        );
-
-    redirect(base_url('/index.php/Welcome'));
+      );
+      $res = $this->login_model->login($data);
+      if($res==NULL){
+        $datosL['error'] = "Datos Incorrectos";
+        //$this->load->view('loginView',$datosL);  
+        redirect(base_url('/index.php/LoginController/'));
+        /*$datosL['error'] = "Datos Incorrectos";
+        $this->load->view('loginView',$datosL);                 //Vista Login
+        //$this->load->view*/
+      }
+      redirect(base_url('/index.php/Welcome'));
   }
 
 }

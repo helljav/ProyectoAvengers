@@ -7,7 +7,8 @@
 		    'name' => 'pregunta',
 		    'placeholder' => 'Escribe una pregunta',
 		    'class' =>  'form-control',
-			'required' => 'required'
+			'required' => 'required',
+			'maxlength' => "115"
 		  );
 		?>
 		<div class="m-5" style="margin-top: 95px !important">
