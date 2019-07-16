@@ -9,18 +9,19 @@ class Login_model extends CI_Model{
 
     function verificaUsuario($data){
         //cuestionarios es el nombre de la base de la tabla
+
         //El array corresponde a los datos a insertar
         $this->db->insert('preguntas_cuestionario',array(
-            'idCuestionario' => $data['idCuestionario'],
-            'idPregunta' => $data['idPregunta'],
-            'secuencia' => $data['secuencia']
+            'idUsuario' => $data['idCuestionario'],
+            'idRol' => $data['idPregunta'],
+            'nombreUsuario' => $data['secuencia'],
+            'password' => $data['password']
         ));
 
     }
-    function obtenerPreguntasCuest($id){
-
+    function obtenerRol($tipoUsuario){
       $query = $this->db->query('select c.idCuestionario, c.idPregunta, p.pregunta from preguntas p, preguntas_cuestionario c where idCuestionario='.$id.' and p.idPregunta=c.idPregunta');
-      if($query->num_rows()>0) return $query;
+      if($query->num_rows()>0) return $query->result();
       else return null;
 
     }
