@@ -90,6 +90,12 @@
 		</div>
 	</div>
 
+<?php
+	if($error==-1){
+		echo "<script>alert('USUARIO O CONTRASEÑA INVALIDO')</script>";
+	}
+?>
+
 
   <?= form_open('index.php/LoginController/log') ?>
   <?php
@@ -98,7 +104,9 @@
       'id' => 'email',
       'placeholder' => 'Escribe el nombre de usuario',
       'class' =>  'label',
-			'type' => 'text'
+			'type' => 'email',
+			'required' => 'required',
+			'maxlength' => "29"
 
     );
     $pass = array(
@@ -107,6 +115,8 @@
       'placeholder' => 'Escribe tu password',
       'type' => 'password',
       'class' =>  'password',
+			'required' => 'required',
+			'maxlength' => "15"
 
     );
   ?>

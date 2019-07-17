@@ -14,7 +14,8 @@
 		    'placeholder' => 'Escribe el contenido  de la respuesta',
 			'class' =>  'form-control',
 			'required' => 'required',
-			'col'=>'col-12'
+			'col'=>'col-12',
+			'maxlength' => "100"
 
 		  );
 			$ids = array(
