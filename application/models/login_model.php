@@ -7,14 +7,13 @@ class Login_model extends CI_Model{
     }
 
     public function login($data){
-        $this->db->where('nombreUsuario',$data['idUsuario']);
-        $this->db->where('password',($data['password']));
-        $q = $this->db->get('usuarios');
-        if($q->num_rows()>0){
-            return $q->result();
-        }else{
-            return false;
-        }
+        $this->db->select('idRol');
+        $this->db->select('nombreUsuario');
+         $this->db->where('nombreUsuario',$data['idUsuario']);
+         $this->db->where('password',($data['password']));
+         $query = $this->db->get('usuarios');
+        if($query->num_rows()>0) return $query;
+        else return NULL;
     }
 
     public function existeUsuario($dataUsuario){
@@ -27,26 +26,6 @@ class Login_model extends CI_Model{
         }
     }
 
-    /*function actualizarPassword($data){
-        $datos = array(
-            'password'=> md5($data['password']));
-            $this->db->where('idUsuario',data['idUsuario']);
-            $query = $this->db->update('login',$datos);
-    }*/
-
-
-    /*function verificaUsuario($data){
-        //cuestionarios es el nombre de la base de la tabla
-
-        //El array corresponde a los datos a insertar
-        $this->db->insert('preguntas_cuestionario',array(
-            'idUsuario' => $data['idCuestionario'],
-            'idRol' => $data['idPregunta'],
-            'nombreUsuario' => $data['secuencia'],
-            'password' => $data['password']
-        ));
-
-    }*/
 
 
 }
