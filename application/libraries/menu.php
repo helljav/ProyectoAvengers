@@ -10,7 +10,7 @@
         $this->arr_menu = $arr;
       }
 
-      public function buildMenu($nombre,$tipo){
+      public function buildMenu(){
 
         $ret_menu = '<div class="page-wrapper chiller-theme toggled">';
         $ret_menu .= ' <nav id="sidebar" class="sidebar-wrapper">';
@@ -18,7 +18,7 @@
         $ret_menu .= '     <div class="sidebar-brand"><a href="#">Proyecto Avengers</a></div>';
         $ret_menu .= '     <div class="sidebar-header">';
         $ret_menu .= '       <div class="user-pic"><img class="img-responsive img-rounded" src="https://raw.githubusercontent.com/azouaoui-med/pro-sidebar-template/gh-pages/src/img/user.jpg" alt="User picture"></div>';
-        $ret_menu .= '       <div class="user-info"><span class="user-name">'.$nombre.'<br><strong>Apellido</strong></span><span class="user-role">'.$tipo.'</span></div>';
+        $ret_menu .= '       <div class="user-info"><span class="user-name">'.'$nombre'.'<br><strong>Apellido</strong></span><span class="user-role">'.'$tipo'.'</span></div>';
         $ret_menu .= '     </div>';
         $ret_menu .= '     <div class="sidebar-menu">';
         $ret_menu .= '       <ul>';
