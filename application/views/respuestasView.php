@@ -39,8 +39,8 @@
 		  <table class="table" style="text-align:center">
 		    <thead class="thead-dark">
 		      <tr>
-		        <th scope="col">#</th>
-		        <th scope="col">Respuesta</th>
+		        <th style="max-width: 209px; overflow: hidden;" scope="col">#</th>
+		        <th style="max-width: 209px; overflow: hidden;" scope="col">Respuesta</th>
 		        <th scope="col">Editar</th>
 		        <th scope="col">Eliminar</th>
 		      </tr>

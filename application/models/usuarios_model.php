@@ -1,6 +1,6 @@
 <?php if(! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Respuestas_model extends CI_Model{
+class Usuarios_model extends CI_Model{
     function __construct(){
         parent::__construct();
         $this->load->database();//Cargamos la base de datos
@@ -17,23 +17,15 @@ class Respuestas_model extends CI_Model{
         ));
 
     }
-    function obtenerRespuesta($id){
+    function obtenerUsuarios(){
         // query con where
-        $this->db->where('idPregunta',"$id");
-        $query = $this->db->get('respuestas');
+
+        $query = $this->db->get('usuarios');
         if($query->num_rows()>0) return $query;
         else return false;
 
     }
 
-    function obtenerPregunta($id){
-        // query con where
-        $this->db->where('idPregunta',"$id");
-        $query = $this->db->get('preguntas');
-        if($query->num_rows()>0) return $query;
-        else return false;
-
-    }
 }
 
 ?>

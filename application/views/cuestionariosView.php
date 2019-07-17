@@ -41,9 +41,9 @@
 		      <tr>
 		        <th scope="col">#</th>
 		        <th scope="col">Nombre</th>
-		        <th scope="col">Descripcion</th>
+		        <th  scope="col">Descripción</th>
 		        <th scope="col">Modificar cuestionario</th>
-		        <th scope="col">Agergar pregunta a cuestionario</th>
+		        <th scope="col">Agregar pregunta a cuestionario</th>
 		        <th scope="col">Eliminar</th>
 		      </tr>
 		    </thead>
@@ -51,8 +51,8 @@
 		  <?php if($users){ foreach ($users->result() as $item) {?>
 		      <tr>
 				<th scope="row"> <?= $item->idCuestionario;?> </th>
-				<td> <?= $item->nombreCuestionario;?> </td>
-		        <td> <?= $item->descripcion;?> </td>
+						<td style="max-width: 209px; overflow: hidden;"> <?= $item->nombreCuestionario;?> </td>
+		        <td style="max-width: 209px; overflow: hidden;"> <?= $item->descripcion;?> </td>
 						<td><a href='CuestionariosController/editar/<?= $item->idCuestionario;?>'><i class="fas fa-pen ico-update"></i></a> </td>
 						<td><a href='PregCuestController/index/<?= $item->idCuestionario;?>'><i class="far fa-plus-square ico-add"></i></a> </td>
 		        <td><a href='CuestionariosController/eliminar/<?= $item->idCuestionario;?>'><i class="fas fa-trash ico-delete"></i></a> </td>

@@ -27,8 +27,8 @@
 		    <thead class="thead-dark">
 		      <tr>
 		        <th scope="col">#</th>
-		        <th scope="col">Pregunta</th>
-		        <th scope="col">Ver respuestas</th>
+		        <th style="max-width: 209px; overflow: hidden;" scope="col">Pregunta</th>
+		        <th style="max-width: 209px; overflow: hidden;" scope="col">Ver respuestas</th>
 		        <th scope="col">Modificar pregunta</th>
 		        <th scope="col">Eliminar</th>
 		      </tr>

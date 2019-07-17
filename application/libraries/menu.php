@@ -19,7 +19,7 @@
         $ret_menu .= '     <div class="sidebar-brand"><a href="#">Proyecto Avengers</a></div>';
         $ret_menu .= '     <div class="sidebar-header">';
         $ret_menu .= '       <div class="user-pic"><img class="img-responsive img-rounded" src="https://raw.githubusercontent.com/azouaoui-med/pro-sidebar-template/gh-pages/src/img/user.jpg" alt="User picture"></div>';
-        $ret_menu .= '       <div class="user-info"><span class="user-name">Nombre <br><strong>Apellido</strong></span><span class="user-role">Administrator</span></div>';
+        $ret_menu .= '       <div class="user-info"><span class="user-name">Nombre <br><strong>Apellido</strong></span><span class="user-role">Super Administrador</span></div>';
         $ret_menu .= '     </div>';
         $ret_menu .= '     <div class="sidebar-menu">';
         $ret_menu .= '       <ul>';
@@ -33,6 +33,8 @@
             $ret_menu .= '     <li> <a href="http://localhost:3308/ProyectoAvengers/index.php/PreguntasController"> <i class="fa fa-chart-line"></i> <span>'.$opcion.'</span><span class="badge badge-pill badge-primary">Beta</span></a></li>';
           }else if($opcion=='Cuestionarios'){
             $ret_menu .= '     <li> <a href="http://localhost:3308/ProyectoAvengers/index.php/CuestionariosController"> <i class="fa fa-folder"></i> <span>'.$opcion.'</span><span class="badge badge-pill badge-primary">Beta</span></a></li>';
+          }else if($opcion=='Usuarios'){
+            $ret_menu .= '     <li> <a href="http://localhost:3308/ProyectoAvengers/index.php/UsuariosController"> <i class="fa fa-user"></i> <span>'.$opcion.'</span><span class="badge badge-pill badge-primary">Beta</span></a></li>';
           }
 
         }

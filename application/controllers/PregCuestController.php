@@ -17,7 +17,7 @@ class PregCuestController extends CI_Controller {
 	{
     $users['id'] = $this->uri->segment(3);// id del cuestionarios   from * PreguntasCuestionario where idCuestionario = $users['id']
 		$this->load->view('template/headHTML');
-		$this->load->library('menu',array('Preguntas','Cuestionarios'));
+		$this->load->library('menu',array('Preguntas','Cuestionarios','Usuarios'));
 	  $data['menu'] = $this->menu->buildMenu();
 		$users['users'] = '';
 		$users['nombre'] = $this->cuestionarios_model->obtenerCuestionario($users['id']);
