@@ -12,10 +12,12 @@ class RespuestasController extends CI_Controller {
 	}
 	public function index()
 	{
+		$nombre = "Programame :C";
+		$tipo = "Super administrador";
 		$users['id'] = $this->uri->segment(3);
 		$this->load->view('template/headHTML');
 		$this->load->library('menu',array('Preguntas','Cuestionarios'));
-	    $data['menu'] = $this->menu->buildMenu();
+	 	$data['menu'] = $this->menu->buildMenu($nombre,$tipo);
 		$users['users'] = $this->respuestas_model->obtenerRespuesta($this->uri->segment(3));
 		$users['nombre'] = $this->respuestas_model->obtenerPregunta($this->uri->segment(3));
 		$this->load->view('template/menuView',$data);
@@ -32,7 +34,7 @@ class RespuestasController extends CI_Controller {
 
         );
 				echo $this->input->post('id');
-			
+
 		$this->respuestas_model->crearRespuesta($data);
 		redirect(base_url('/index.php/PreguntasController'));
 	}

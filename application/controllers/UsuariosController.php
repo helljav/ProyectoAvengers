@@ -12,10 +12,12 @@ class UsuariosController extends CI_Controller {
 	}
 	public function index()
 	{
+    $nombre = "Programame :C";
+		$tipo = "Super administrador";
 		$users['id'] = $this->uri->segment(3);
 		$this->load->view('template/headHTML');
 		$this->load->library('menu',array('Preguntas','Cuestionarios','Usuarios'));
-	  $data['menu'] = $this->menu->buildMenu();
+	  $data['menu'] = $this->menu->buildMenu($nombre,$tipo);
 		$users['users'] = $this->usuarios_model->obtenerUsuarios();
     $users['rol'] = array( //Extraer todos los roles
       'rol1' => 'Apenas me van a programar :C',

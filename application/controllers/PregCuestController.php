@@ -15,10 +15,12 @@ class PregCuestController extends CI_Controller {
 
 	public function index()
 	{
+		$nombre = "Programame :C";
+		$tipo = "Super administrador";
     $users['id'] = $this->uri->segment(3);// id del cuestionarios   from * PreguntasCuestionario where idCuestionario = $users['id']
 		$this->load->view('template/headHTML');
 		$this->load->library('menu',array('Preguntas','Cuestionarios','Usuarios'));
-	  $data['menu'] = $this->menu->buildMenu();
+	  $data['menu'] = $this->menu->buildMenu($nombre,$tipo);
 		$users['users'] = '';
 		$users['nombre'] = $this->cuestionarios_model->obtenerCuestionario($users['id']);
     $users['preguntas'] = $this->preguntas_model->findAll($users['id']);

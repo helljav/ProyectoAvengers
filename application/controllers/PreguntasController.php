@@ -13,9 +13,11 @@ class PreguntasController extends CI_Controller {
 	}
 
 	public function index(){
+		$nombre = "Programame :C";
+		$tipo = "Super administrador";
 		$this->load->view('template/headHTML');
 		$this->load->library('menu',array('Preguntas','Cuestionarios','Usuarios'));
-	  $data['menu'] = $this->menu->buildMenu();
+	  $data['menu'] = $this->menu->buildMenu($nombre,$tipo);
 		$preguntasTabla['users'] =  $this->preguntas_model->obtenerPreguntas();
 		$this->load->view('template/menuView',$data);
 		$this->load->view('preguntasView',$preguntasTabla);

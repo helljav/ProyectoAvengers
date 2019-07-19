@@ -50,7 +50,7 @@
 		  <?php if($users){ foreach ($users->result() as $item) {?>
 		      <tr>
 		        <th scope="row"> <?= $item->idRespuesta;?> </th>
-		        <td> <?= $item->respuesta;?> </td>
+		        <td style="max-width: 209px; overflow: hidden;"> <?= $item->respuesta;?> </td>
 						<td><a href='RespuestasController/editar/<?= $item->idRespuesta;?>'><i class="fas fa-pen ico-update"></i></a> </td>
 		        <td><a href='RespuestasController/eliminar/<?= $item->idRespuesta;?>'><i class="fas fa-trash ico-delete"></i></a> </td>
 		      </tr>

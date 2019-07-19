@@ -19,10 +19,10 @@ class Welcome extends CI_Controller {
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
 	public function index(){
-		$nombre = "joder";
-		$tipo = "jajaja";
+		$nombre = "Programame :C";
+		$tipo = "Super administrador";
 		$this->load->view('template/headHTML');
-		$this->load->library('menu',array('Respuestas','Preguntas','Cuestionarios'));
+		$this->load->library('menu',array('Respuestas','Preguntas','Cuestionarios','Usuarios'));
 	  	$data['menu'] = $this->menu->buildMenu($nombre,$tipo);
 
 		$this->load->view('template/menuView',$data);

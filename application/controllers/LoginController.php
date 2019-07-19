@@ -38,13 +38,13 @@ class LoginController extends CI_Controller {
 				$this->load->view('template/endHTML');
       }
 			else{
-				foreach ($res->result() as $item) {
+				/*foreach ($res->result() as $item) {
  		    	$Rol= $item->idRol;
 					$nombreUsuario = $item->nombreUsuario;
- 		  	}
-				if($Rol==2){//vista para el Analista
+ 		  	}*/
+				//if($Rol==2){//vista para el Analista
 						redirect(base_url('/index.php/Welcome'));
-				}
+				//}
 
 			}
 

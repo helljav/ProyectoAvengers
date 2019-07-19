@@ -37,7 +37,7 @@
 		  <?php if($users){ foreach ($users->result() as $item) {?>
 		      <tr>
 		        <th scope="row"> <?= $item->idPregunta;?> </th>
-		        <td> <?= $item->pregunta;?> </td>
+		        <td style="max-width: 209px; overflow: hidden;"> <?= $item->pregunta;?> </td>
 		        <td><a href='RespuestasController/index/<?= $item->idPregunta;?>'><i class="fas fa-eye ico-see" ></i></a></td>
 		        <td><a href='PreguntasController/eliminar/<?= $item->idPregunta;?>'><i class="fas fa-pen ico-update"></i></a> </td>
 		        <td><a href='PreguntasController/editar/<?= $item->idPregunta;?>'><i class="fas fa-trash ico-delete"></i></a> </td>
