@@ -1,0 +1,40 @@
+<?php
+
+
+class CuestionariosController extends CI_Controller {
+
+	function __construct(){
+		parent::__construct();
+		$this->load->helper('form');
+		$this->load->model('cuestionarios_model');//El controlador es el orquestador y tambien se encarga de mandar a llamar a los modelos
+	}
+
+	public function index()
+	{
+		$nombre = "Programame :C";
+		$tipo = "Super administrador";
+		$this->load->view('template/headHTML');
+		$this->load->library('menu',array('Preguntas','Cuestionarios','Usuarios'));
+	  $data['menu'] = $this->menu->buildMenu($nombre,$tipo);
+		$users ['users'] = $this->cuestionarios_model->obtenerCuestionarios();
+		$this->load->view('template/menuView',$data);
+		$this->load->view('cuestionariosView',$users);
+		$this->load->view('template/endHTML');
+		//jeje
+		//jeje x2
+		//jeje x3
+
+	}
+	public function saveCuestionario(){
+		//$cuestionario =	$this->input->post('cuestionario');
+		$data = array(
+			'idCuestionario' => 'NULL',
+			'cuestionario' => $this->input->post('cuestionario'),
+			'descripcion' => $this->input->post('descripcion')
+
+		);
+		$this->cuestionarios_model->crearCuestionario($data);
+		redirect(base_url('/index.php/CuestionariosController'));
+	}
+}
+?>

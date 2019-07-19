@@ -72,14 +72,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 */
 $active_group = 'default';
 $query_builder = TRUE;
-//CAMBIAR EL PUERTO DE PHP 8080 A 3306 DANDO CLICK DERECHO EN EL ICONO DE WAMP->TOOLS->USE A PORT OHER THAN->3308 EN APACHE 
+//CAMBIAR EL PUERTO DE PHP 8080 A 3306 DANDO CLICK DERECHO EN EL ICONO DE WAMP->TOOLS->USE A PORT OHER THAN->3308 EN APACHE
 // Importante configurar este puerto
 $db['default'] = array(
 	'dsn'	=> '',
 	'hostname' => 'localhost',
 	'username' => 'root',
 	'password' => '',
-	'database' => 'avengers',
+	'database' => 'proyectoavengers',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
