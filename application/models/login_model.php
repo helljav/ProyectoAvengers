@@ -7,15 +7,14 @@ class Login_model extends CI_Model{
     }
 
     public function login($data){
-        $us = $data['idUsuario'];
-        $pass =  $data['password'];
-        var_dump($us);
-        $query = $this->db->query('select nombreUsuario, idRol from usuarios where (nombreUsuario = '."$us".' and password = '."$pass".')');
-        // $this->db->select('idRol');
-        // $this->db->select('nombreUsuario');
-        //  $this->db->where('nombreUsuario',$data['idUsuario']);
-        //  $this->db->where('password',($data['password']));
-        //  $query = $this->db->get('usuarios');
+    
+        $this->db->select('idRol');
+        $this->db->select('nombreUsuario');
+         $this->db->where('nombreUsuario',$data['idUsuario']);
+         $this->db->where('password',($data['password']));
+         $this->db->or_where('correo',$data['idUsuario']);
+         $this->db->where('password',$data['password']);
+         $query = $this->db->get('usuarios');
         if($query->num_rows()>0) return $query;
         else return NULL;
     }

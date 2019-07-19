@@ -24,27 +24,25 @@ class LoginController extends CI_Controller {
   public function log(){
 		$datosL['error'] =  0;
     $data = array(
-		'idUsuario' => $this->input->post('usuario'),
+   	'idUsuario' => $this->input->post('usuario'),
 	  'password' => $this->input->post('password')
-    );
+		);
       $res = $this->login_model->login($data);
 
       if($res==NULL){
         $datosL['error'] = -1 ;
-
-        //$this->load->view('loginView',$datosL);
 				$this->load->view('template/headHTML');
 				$this->load->view('loginView.php',$datosL);
 				$this->load->view('template/endHTML');
       }
 			else{
-				/*foreach ($res->result() as $item) {
+				foreach ($res->result() as $item) {
  		    	$Rol= $item->idRol;
 					$nombreUsuario = $item->nombreUsuario;
- 		  	}*/
-				//if($Rol==2){//vista para el Analista
+ 		  	}
+				if($Rol==2){//vista para el Analista
 						redirect(base_url('/index.php/Welcome'));
-				//}
+				}
 
 			}
 
