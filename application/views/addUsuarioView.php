@@ -12,6 +12,16 @@
       'maxlength' => '30'
     );
 
+    $nickname = array(
+      'name' => 'nickname',
+      'placeholder' => 'Escribe tu nombre',
+      'class' =>  'form-control',
+      'required' => 'required',
+      'col'=>'col-12',
+    //  'pattern' => //'^[_a-z0-9-]+(\.[_a-z0-9-]+)@[a-z0-9-]+(\.[a-z0-9-]+)(\.[a-z]{2,3})$',
+      'maxlength' => '30'
+    );
+
     $pass = array(
       'name' => 'pass',
       'type' => 'password',
@@ -37,6 +47,10 @@
     <div class="form-group">
       <?= form_label('Correo','user') ?>
       <?= form_input($user) ?>
+      </div>
+      <div class="form-group">
+      <?= form_label('Nombre','nickname') ?>
+      <?= form_input($nickname) ?>
       </div>
       <div class="form-group">
        <?= form_label('Contraseña','password') ?>

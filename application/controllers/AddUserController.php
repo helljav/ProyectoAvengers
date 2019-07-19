@@ -34,7 +34,8 @@ class AddUserController extends CI_Controller {
 	      'idUsario' => 'NULL',
         'idRol' => $this->input->post('Options'),
 	      'nombreUsuario'=> $this->input->post('nombreUsuario'),
-        'password' => $this->input->post('pass')
+        'password' => $this->input->post('pass'),
+        'nickname' => $this->input->post('nickname')
 
     );
 
