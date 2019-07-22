@@ -16,7 +16,7 @@ class UsuariosController extends CI_Controller {
 		$tipo = "Super administrador";
 		$users['id'] = $this->uri->segment(3);
 		$this->load->view('template/headHTML');
-		$this->load->library('menu',array('Preguntas','Cuestionarios','Usuarios'));
+		$this->load->library('menu',array('Usuarios'));
 	  $data['menu'] = $this->menu->buildMenu($nombre,$tipo);
 		$users['users'] = $this->usuarios_model->obtenerUsuarios();
     $users['rol'] = array( //Extraer todos los roles

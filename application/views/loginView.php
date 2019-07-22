@@ -102,9 +102,9 @@
     $usuario = array(
       'name' => 'usuario',
       'id' => 'email',
-      'placeholder' => 'Escribe el nombre de usuario',
+      'placeholder' => 'ingresa usuario o correo electronico',
       'class' =>  'label',
-			'type' => 'email',
+			'type' => 'text',
 			'required' => 'required',
 			'maxlength' => "29"
 

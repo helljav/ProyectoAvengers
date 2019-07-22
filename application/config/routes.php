@@ -53,3 +53,4 @@ $route['default_controller'] = 'LoginController';
 
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
+$route['cookie'] = 'Login_Controller';

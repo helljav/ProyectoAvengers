@@ -19,7 +19,7 @@ class PregCuestController extends CI_Controller {
 		$tipo = "Super administrador";
     $users['id'] = $this->uri->segment(3);// id del cuestionarios   from * PreguntasCuestionario where idCuestionario = $users['id']
 		$this->load->view('template/headHTML');
-		$this->load->library('menu',array('Preguntas','Cuestionarios','Usuarios'));
+		$this->load->library('menu',array('Preguntas','Cuestionarios'));
 	  $data['menu'] = $this->menu->buildMenu($nombre,$tipo);
 		$users['users'] = '';
 		$users['nombre'] = $this->cuestionarios_model->obtenerCuestionario($users['id']);

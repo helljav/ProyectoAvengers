@@ -13,7 +13,8 @@ class Usuarios_model extends CI_Model{
         $this->db->insert('usuarios',array(
             'idUsuario' => $data['idUsario'],
             'idRol' => $data['idRol'],
-            'nombreUsuario' => $data['nombreUsuario'],
+            'nombreUsuario' => $data['nombre'],
+            'correo' => $data['correo'],
             'password' => $data['password']
         ));
 
