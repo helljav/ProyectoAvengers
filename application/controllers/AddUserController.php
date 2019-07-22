@@ -37,7 +37,7 @@ class AddUserController extends CI_Controller {
         'password' => $this->input->post('pass'),
         'nombre' => $this->input->post('nickname')
 
-    );
+	);
 
 	//	echo $this->input->post('Options');
 		$this->usuarios_model->crearUsuario($data);

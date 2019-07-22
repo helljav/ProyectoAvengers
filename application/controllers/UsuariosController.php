@@ -28,6 +28,31 @@ class UsuariosController extends CI_Controller {
 		$this->load->view('template/endHTML');
 	}
 
+	public function editar($id){
+		$id = $this->uri->segment(3);
+		$da = $this->usuarios_model->obtenerUsuario($id);
+		foreach ($da->result() as $item) {
+			$usuario['nombre']= $item->nombreUsuario;
+			   $usuario['correo'] = $item->correo;
+			   $usuario['password'] = $item->password;
+
+		  }
+		  $nombre = "Programame :C";
+		  $tipo = "Super administrador";
+		  $users['id'] = $this->uri->segment(3);
+		  $this->load->view('template/headHTML');
+		  $this->load->library('menu',array('Usuarios'));
+		$data['menu'] = $this->menu->buildMenu($nombre,$tipo);
+		  $users['users'] = $this->usuarios_model->obtenerUsuarios();
+	  $users['rol'] = array( //Extraer todos los roles
+		'idRol' => '1',
+	  );
+  
+		  $this->load->view('template/menuView',$data);
+		  $this->load->view('modUsuarioView',$users);
+		  $this->load->view('template/endHTML');
+	}
+
 
 }
 ?>

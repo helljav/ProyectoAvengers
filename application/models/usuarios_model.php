@@ -30,6 +30,13 @@ class Usuarios_model extends CI_Model{
 
     }
 
+    function obtenerUsuario($id){
+        $this->db->where('idUsuario', $id);
+        $query = $this->db->get('usuarios');
+        if($query->num_rows()>0) return $query;
+        else return false;
+    }
+
 }
 
 ?>
