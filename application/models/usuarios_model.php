@@ -26,6 +26,13 @@ class Usuarios_model extends CI_Model{
 
     }
 
+    function eliminarUsuario($id){
+    
+         $this->db->where('isUsuario',$id);
+         $this->delete('usuarios');
+         //redirect();
+    }
+
 }
 
 ?>

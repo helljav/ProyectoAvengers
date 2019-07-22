@@ -70,7 +70,7 @@
 		        <th scope="row"> <?= $item->idUsuario;?> </th>
 		        <td style="max-width: 209px; overflow: hidden;"> <?= $item->nombreUsuario;?> </td>
 						<td><a href='UsuariosController/editar/<?= $item->idUsuario;?>'><i class="fas fa-pen ico-update"></i></a> </td>
-		        <td><a href='UsuariosController/eliminar/<?= $item->idUsuario	;?>'><i class="fas fa-trash ico-delete"></i></a> </td>
+		        <td><a href='UsuariosController/eliminarUsuario/<?= $item->idUsuario	;?>'><i class="fas fa-trash ico-delete"></i></a> </td>
 		      </tr>
 		  <?php } } else{
 		    echo '<p>No contiene ningun objeto por ahora</p>';
