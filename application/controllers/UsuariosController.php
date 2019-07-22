@@ -29,5 +29,11 @@ class UsuariosController extends CI_Controller {
 	}
 
 
+	public function eliminar($id){
+		$id = $this->uri->segment(3);
+		$this->usuarios_model->eliminarUsuario($id);
+		$this->index();
+	}
+
 }
 ?>

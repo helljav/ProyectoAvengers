@@ -22,12 +22,16 @@ class Usuarios_model extends CI_Model{
 
     }
     function obtenerUsuarios(){
-        // query con where
 
         $query = $this->db->get('usuarios');
         if($query->num_rows()>0) return $query;
         else return false;
 
+    }
+
+    function eliminarUsuario($id){
+        $this->db->where('idUsuario', $id);
+		$this->db->delete('usuarios');
     }
 
 }
