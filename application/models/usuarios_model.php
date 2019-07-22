@@ -7,14 +7,18 @@ class Usuarios_model extends CI_Model{
     }
 
 
-    function crearRespuesta($data){
+    function crearUsuario($data){
         //preguntas es el nombre de la base de la tabla
         //El array corresponde a los datos a insertar
-        $this->db->insert('respuestas',array(
-            'idRespuesta' => $data['idRespuesta'],
-            'idPregunta' => $data['idPregunta'],
-            'respuesta' => $data['respuesta']
+        $this->db->insert('usuarios',array(
+            'idUsuario' => $data['idUsario'],
+            'idRol' => $data['idRol'],
+            'nombreUsuario' => $data['nombre'],
+            'correo' => $data['correo'],
+            'password' => $data['password']
         ));
+
+
 
     }
     function obtenerUsuarios(){
@@ -24,13 +28,6 @@ class Usuarios_model extends CI_Model{
         if($query->num_rows()>0) return $query;
         else return false;
 
-    }
-
-    function eliminarUsuario($id){
-    
-         $this->db->where('isUsuario',$id);
-         $this->delete('usuarios');
-         //redirect();
     }
 
 }

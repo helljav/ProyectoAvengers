@@ -8,7 +8,7 @@ class LoginController extends CI_Controller {
 		parent::__construct();
 		$this->load->helper('form');
 		$this->load->model('login_model');
-		$this->load->helper(array('cookie','url'));
+		$this->load->helper('cookie');
 		$this->load->helper('email');
 		}
 
@@ -24,13 +24,15 @@ class LoginController extends CI_Controller {
   public function log(){
 		$datosL['error'] =  0;
     $data = array(
-   	'idUsuario' => $this->input->post('usuario'),
-	  'password' => $this->input->post('password')
-		);
+			'idUsuario' => $this->input->post('usuario'),
+      'password' => $this->input->post('password')
+    );
       $res = $this->login_model->login($data);
 
       if($res==NULL){
         $datosL['error'] = -1 ;
+
+        //$this->load->view('loginView',$datosL);
 				$this->load->view('template/headHTML');
 				$this->load->view('loginView.php',$datosL);
 				$this->load->view('template/endHTML');
@@ -38,15 +40,52 @@ class LoginController extends CI_Controller {
 			else{
 				foreach ($res->result() as $item) {
  		    	$Rol= $item->idRol;
-					$nombreUsuario = $item->nombreUsuario;
+					$id = $item->idUsuario;
+
  		  	}
 				if($Rol==2){//vista para el Analista
-						redirect(base_url('/index.php/Welcome'));
+					$this->RedirectAnalista($id);
+
+				}
+				if($Rol==1){//vista para el administrador
+						$this->RedirectAdministrador($id);
 				}
 
 			}
 
   }
+
+	public function RedirectAnalista($id){
+		$infoUser = $this->login_model->existeUsuario($id);
+		foreach ($infoUser->result() as $item) {
+			$nombre = $item->nombreUsuario;
+		  $correo= $item->correo;
+
+		}
+		$this->load->view('template/headHTML');
+		$this->load->library('menu',array('Respuestas','Preguntas','Cuestionarios'));
+		$data['menu'] = $this->menu->buildMenu($nombre,$correo);
+
+		$this->load->view('template/menuView',$data);
+		//$this->load->view('welcome_view');
+		$this->load->view('template/endHTML');
+	}
+
+	public function RedirectAdministrador($id){
+		$infoUser = $this->login_model->existeUsuario($id);
+		foreach ($infoUser->result() as $item) {
+			$nombre = $item->nombreUsuario;
+		  $correo= $item->correo;
+
+		}
+		$this->load->view('template/headHTML');
+		$this->load->library('menu',array('Usuarios'));
+		$data['menu'] = $this->menu->buildMenu($nombre,$correo);
+
+		$this->load->view('template/menuView',$data);
+		//$this->load->view('welcome_view');
+		$this->load->view('template/endHTML');
+	}
 
 }
 ?>

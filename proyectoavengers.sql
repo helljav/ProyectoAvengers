@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.5
+-- version 4.8.4
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1:3306
--- Tiempo de generación: 19-07-2019 a las 18:24:21
--- Versión del servidor: 5.7.26
--- Versión de PHP: 7.2.18
+-- Tiempo de generación: 14-07-2019 a las 22:09:55
+-- Versión del servidor: 5.7.24
+-- Versión de PHP: 7.3.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -150,15 +150,7 @@ CREATE TABLE IF NOT EXISTS `roles` (
   `idRol` int(11) NOT NULL AUTO_INCREMENT,
   `nombreRol` varchar(255) NOT NULL,
   PRIMARY KEY (`idRol`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
-
---
--- Volcado de datos para la tabla `roles`
---
-
-INSERT INTO `roles` (`idRol`, `nombreRol`) VALUES
-(1, 'Administrador\r\n'),
-(2, 'Analista');
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -171,18 +163,10 @@ CREATE TABLE IF NOT EXISTS `usuarios` (
   `idUsuario` int(11) NOT NULL AUTO_INCREMENT,
   `idRol` int(11) NOT NULL,
   `nombreUsuario` varchar(255) NOT NULL,
-  `correo` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
   PRIMARY KEY (`idUsuario`),
   KEY `idRol` (`idRol`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
-
---
--- Volcado de datos para la tabla `usuarios`
---
-
-INSERT INTO `usuarios` (`idUsuario`, `idRol`, `nombreUsuario`, `correo`, `password`) VALUES
-(1, 2, 'rych', 'charly@gmail.com', '1234');
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Restricciones para tablas volcadas
@@ -205,7 +189,7 @@ ALTER TABLE `respuestas`
 -- Filtros para la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  ADD CONSTRAINT `usuarios_ibfk_1` FOREIGN KEY (`idRol`) REFERENCES `roles` (`idRol`);
+  ADD CONSTRAINT `usuarios_ibfk_1` FOREIGN KEY (`idRol`) REFERENCES `roles` (`idRol`) ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

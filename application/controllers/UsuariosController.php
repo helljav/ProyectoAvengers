@@ -20,7 +20,7 @@ class UsuariosController extends CI_Controller {
 	  $data['menu'] = $this->menu->buildMenu($nombre,$tipo);
 		$users['users'] = $this->usuarios_model->obtenerUsuarios();
     $users['rol'] = array( //Extraer todos los roles
-      'rol1' => 'Apenas me van a programar :C',
+      'idRol' => '1',
     );
 
 		$this->load->view('template/menuView',$data);
@@ -28,22 +28,5 @@ class UsuariosController extends CI_Controller {
 		$this->load->view('template/endHTML');
 	}
 
-	public function saveUsuario(){
-
-		$data = array(
-	      'idUsario' => 'NULL',
-        'idRol' => $this->input->post('tipo'),
-	      'nombreUsuario'=> $this->input->post('nombreUsuario'),
-        'password' => $this->input->post('pass')
-
-    );
-
-		  //redirect(base_url('/index.php/PreguntasController'));
-	 }
-
-	 public function eliminarUsuario(){
-		 $id = $this->url->uri(3);		
-		 
-	 }
 }
 ?>

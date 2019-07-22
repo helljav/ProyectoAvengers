@@ -102,7 +102,7 @@
     $usuario = array(
       'name' => 'usuario',
       'id' => 'email',
-      'placeholder' => 'Ingresa correo o usuario',
+      'placeholder' => 'ingresa usuario o correo electronico',
       'class' =>  'label',
 			'type' => 'text',
 			'required' => 'required',
@@ -121,13 +121,10 @@
     );
   ?>
   <div class="m-5" style="margin-top: 0px !important">
-	
- 
-  <div class="inputGroup inputGroup1">
+    <div class="inputGroup inputGroup1">
        <?= form_label('Usuario','email', 'class="label" for="usuario"') ?>
        <?= form_input($usuario) ?>
-	</div>
-	
+    </div>
     <div class="inputGroup inputGroup2">
        <?= form_label('Password','password', 'for="password"') ?>
        <?= form_input($pass) ?>
