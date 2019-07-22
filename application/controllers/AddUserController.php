@@ -16,7 +16,7 @@ class AddUserController extends CI_Controller {
 		$tipo = "Super administrador";
 		$users['id'] = $this->uri->segment(3);
 		$this->load->view('template/headHTML');
-		$this->load->library('menu',array('Preguntas','Cuestionarios','Usuarios'));
+		$this->load->library('menu',array('Usuarios'));
 	  $data['menu'] = $this->menu->buildMenu($nombre,$tipo);
 
     $users['idRol'] = array( //Extraer todos los roles
@@ -33,9 +33,9 @@ class AddUserController extends CI_Controller {
 		$data = array(
 	      'idUsario' => 'NULL',
         'idRol' => $this->input->post('Options'),
-	      'nombreUsuario'=> $this->input->post('nombreUsuario'),
+	      'correo'=> $this->input->post('nombreUsuario'),
         'password' => $this->input->post('pass'),
-        'nickname' => $this->input->post('nickname')
+        'nombre' => $this->input->post('nickname')
 
     );
 

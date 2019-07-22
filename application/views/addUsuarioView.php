@@ -49,7 +49,7 @@
       <?= form_input($user) ?>
       </div>
       <div class="form-group">
-      <?= form_label('Nombre','nickname') ?>
+      <?= form_label('Nombre de usuario','nickname') ?>
       <?= form_input($nickname) ?>
       </div>
       <div class="form-group">
