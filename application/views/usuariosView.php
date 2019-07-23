@@ -13,16 +13,26 @@
 		        <th scope="col">#</th>
 		        <th style="max-width: 209px; overflow: hidden;" scope="col">Usuario</th>
 						<th style="max-width: 209px; overflow: hidden;" scope="col">Correo</th>
+						<th style="max-width: 209px; overflow: hidden;" scope="col">Cargo</th>
 		        <th scope="col">Editar</th>
 		        <th scope="col">Eliminar</th>
 		      </tr>
 		    </thead>
 		    <tbody>
 		  <?php if($users){ foreach ($users->result() as $item) {?>
+				<?php
+				 if($item->idRol==1){
+					 $cargo = "Administrador";
+				 }
+				 else{
+					 $cargo = "Analista";
+				 }
+				 ?>
 		      <tr>
 		        <th scope="row"> <?= $item->idUsuario;?> </th>
 		        <td style="max-width: 209px; overflow: hidden;"> <?= $item->nombreUsuario;?> </td>
 						<td style="max-width: 209px; overflow: hidden;"> <?= $item->correo;?> </td>
+						<td style="max-width: 209px; overflow: hidden;"> <?= $cargo;?> </td>
 						<td><a href='UsuariosController/editar/<?= $item->idUsuario;?>'><i class="fas fa-pen ico-update"></i></a> </td>
 		        <td><a href='UsuariosController/eliminar/<?= $item->idUsuario	;?>'><i class="fas fa-trash ico-delete"></i></a> </td>
 		      </tr>
